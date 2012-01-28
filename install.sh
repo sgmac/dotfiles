@@ -11,7 +11,6 @@ function set_msg() {
 	local msg="$2"
 	local params="$3"
 	echo -ne "\033[1;3${color}m\t"; printf ' %s'  $msg 
-	#printf '\033[1;3%sm\t %s'  $color $msg 
 	printf '\n'
 }
 
@@ -21,7 +20,6 @@ function set_done() {
 }
 
 function set_dots() {
-    	#echo -ne "\033[1;34m [*] Configuration for $*"
     	printf '\033[1;34m [*] Configuration for %s' $*
     	set_$*  "$*"
 }
@@ -90,6 +88,10 @@ function set_link() {
 			if [ $? -ne 0 ]; then
 				set_msg "7" "rsync ${dir}"
 			       	rsync -avz ${current_dir}/_$dir ${dest}/.${dir} >& /dev/null
+			fi
+
+			if [ "${dest}/.${dir}rc" ];then
+				do_backup "${dest}/.${dir}rc" && ln -s "${orig}/_${dir}/_${dir}rc" "${dest}/.${dir}rc"
 			fi
 			;;
 		emacs)
