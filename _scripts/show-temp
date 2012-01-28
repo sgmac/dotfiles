@@ -1,0 +1,3 @@
+#!/bin/bash
+
+sensors | grep -i "CPU Tem" | awk '{print $3}'

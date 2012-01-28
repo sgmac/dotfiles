@@ -1,0 +1,17 @@
+
+
+set imap_user = "user@gmail.com"
+set imap_pass = "password"
+
+
+set smtp_url = "smtp://user@smtp.gmail.com:587/"
+set smtp_pass = "password"
+set from = "user@gmail.com"
+set realname = "Sergio Galvan"
+
+set folder = "imaps://imap.gmail.com:993/"
+set spoolfile = "+INBOX"
+
+set record = "+[Gmail]/Sent Mail"
+
+set move = no

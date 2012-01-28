@@ -1,0 +1,43 @@
+
+get_njobs() {
+njobs=$(jobs | wc -l)
+ if [ $njobs -gt "0" ];
+ then
+        echo $njobs |  sed -e 's/\([0-9]*\)/(\1)/g'
+ fi
+}
+
+prompt() {
+ if [ $TERM != "dumb" ];
+ then 
+ alias ls='ls --color=auto'
+    if [ $USER == "git" ];
+    then
+        PS1="[${GREEN}GIT${close}${GREY}@${close}${RED}\h${close}]:{\W}\$(get_njobs)" 
+    elif [ $USER == "deploys" ]; 
+    then
+        if [ `hostname` == "idun" ];
+        then
+        PS1="${YELLOW}[${close}${GREY}\u${YELLOW}@${close}${close}${GREEN}\h${close}${YELLOW}]${close}:${red}{\W}\$(get_njobs)${close}"
+        else
+        PS1="${YELLOW}[${close}${red}\u${YELLOW}@${close}${close}${GREEN}\h${close}${YELLOW}]${close}:${YELLOW}{\W}\$(get_njobs)${close}"
+        fi
+    else
+     PS1="[${WHITE}\u${GREEN}@$close${close}${red}\h${close}]:{\W}\$(get_njobs)" 
+    fi
+fi 
+} 
+
+clipit() {
+   if [ "$#" -ge 1 ];
+   then
+     cat "$1" | xclip -selection CLIPBOARD 
+  fi
+}
+
+##
+#  inline functions
+##
+
+efn() { vi $HOME/.bash_funcs; }
+m2pdf() { man -t "$1" | ps2pdf - > ${1}.pdf ; }

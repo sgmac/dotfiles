@@ -1,0 +1,47 @@
+# my editor
+
+EDITOR=vi
+
+### Export a friendly use of colors by means of vars
+
+if [ -f ~/.bash_colors ]; then
+    . ~/.bash_colors
+fi
+
+
+if [ -f ~/.bash_funcs ]; then
+    . ~/.bash_funcs
+fi
+
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+
+if [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+fi
+
+
+#### If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
+# allows to copy hidden files
+shopt -s dotglob 
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+shopt -s histappend
+export HISTIGNORE="ls:cat:history:~:cd ~"
+export HISTCONTROL=ignoreboth
+
+
+export HISTSIZE=5000
+export HISTFILESIZE=5000
+
+export EDITOR
+export PATH=$PATH:$HOME/.tmux:${HOME}/.scripts
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+
+prompt

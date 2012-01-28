@@ -1,0 +1,216 @@
+;;;; My .emacs 
+
+
+
+;;
+;;;; Custom variables
+;;
+
+
+(custom-set-variables
+ '(display-time-24hr-format t)
+ '(frame-title-format (quote ("%b" (buffer-file-name ": %f"))) t)
+ '(inhibit-startup-screen t)
+ '(make-backup-files nil)
+ '(tool-bar-mode nil)
+ '(transient-mark-mode t)
+ '(x-select-enable-clipboard t))
+
+;;
+;;;; Custom faces
+;;
+
+(custom-set-faces
+ )
+
+(line-number-mode 't)
+(column-number-mode 't)
+(display-time)
+
+
+;;
+;;;; Default mode
+;;
+(add-hook 'text-mode-hook
+	  (function (lambda ()
+		      (turn-on-auto-fill))))
+
+
+;:
+;;;; My keymaps
+;:
+
+(global-set-key "\C-c\C-k" 'myemacs-conf)
+(global-set-key "\C-c s" 'ansi-term)
+(global-set-key "\C-c\C-v" 'eval-buffer)
+(global-set-key (kbd "<f2>") 'open-localhost)
+(global-set-key (kbd "<f3>") 'xen)
+(global-set-key (kbd "<f4>") 'nav)
+(global-set-key (kbd "<f6>") 'yas/reload-all)
+(global-set-key (kbd "<f7>") 'compile)
+(global-set-key (kbd "<f9>") 'gnus) 
+(global-set-key (kbd "M-/") 'hippie-expand) 
+
+
+;;
+;;;; Look & Feel
+;;
+
+(set-background-color "black")
+(set-foreground-color "white")
+
+
+;;
+;;;; Plugins
+;;
+
+(add-to-list 'load-path "~/.emacs.d/plugins/yasnippet")
+(require 'yasnippet) ;; not yasnippet-bundle
+(yas/initialize)
+(yas/load-directory "~/.emacs.d/plugins/yasnippet/snippets")
+
+
+
+
+(defun open-localhost ()
+      (interactive)
+      (ansi-term "bash" "localhost"))
+
+(defun myemacs-conf() 
+  "Opening my emacs file."
+  (interactive)
+  (find-file "~/.emacs")
+)
+
+(defun remote (new-buffer-name cmd &rest switches)
+  (setq term-ansi-buffer-name (concat "*" new-buffer-name "*"))
+  (setq term-ansi-buffer-name (generate-new-buffer-name term-ansi-buffer-name))
+  (setq term-ansi-buffer-name (apply 'make-term term-ansi-buffer-name cmd nil switches))
+  (set-buffer term-ansi-buffer-name)
+  (term-mode)
+  (term-char-mode)
+  (term-set-escape-char ?\C-x)
+  (switch-to-buffer term-ansi-buffer-name))
+
+(defun xen() 
+  "Connecting xen server"
+  (interactive)
+  (remote "goll"  "ssh" "deploys@sgmac.com"))
+  
+
+;; MULTITERM
+(add-to-list 'load-path "~/.emacs.d/plugins/multiterm")
+(require 'multi-term)
+(setq multi-term-program "/bin/bash")
+
+;; ANYTHING
+
+(add-to-list 'load-path "~/.emacs.d/plugins/anything")
+(require 'anything-config)
+(require 'anything-show-completion)
+
+;; NAVIGATION
+
+(add-to-list 'load-path "~/.emacs.d/emacs-nav")
+(require 'nav)
+
+
+;; LUSTY
+
+(add-to-list 'load-path "~/.emacs.d/plugins/lusty")
+(require 'lusty-explorer)
+
+
+;; GNUS
+;; (setq message-send-mail-function 'smtpmail-send-it
+;;       smtpmail-starttls-credentials '(("smtp.gmail.com" 587 nil nil))
+;;       smtpmail-auth-credentials '(("smtp.gmail.com" 587 "nephyer@gmail.com" nil))
+;;       smtpmail-default-smtp-server "smtp.gmail.com"
+;;       smtpmail-smtp-server "smtp.gmail.com"
+;;       smtpmail-smtp-service 587
+;;       smtpmail-local-domain "sgmac.com")
+
+;; (setq gnus-posting-styles
+;;       '((".*"
+;; 	  ("CC" "nephyer@gmail.com")
+;;          (address "nephyer@gmail.com"))))
+
+(setq frame-title-format '("%b" (buffer-file-name ":%f" )))
+
+
+(load "~/.emacs.d/gnus")
+
+
+
+(setq load-path (append load-path (list
+				   "~/.el"
+				   )))
+
+(setq default-frame-alist 
+      '((cursor-color . "yellow")
+	(background-color . "black")
+	(foreground-color . "white"))
+)
+
+
+;; (setq custom-file "/path/to/custom-file.el")
+;; (load custom-file)
+
+(require 'magit)
+(require 'ido)
+(ido-mode t)
+(setq  iptables "~/.emacs.d/iptables.el")
+(load iptables)
+
+
+
+
+;; wanderlust
+(autoload 'wl "wl" "Wanderlust" t)
+(autoload 'wl-other-frame "wl" "Wanderlust on new frame." t)
+(autoload 'wl-draft "wl-draft" "Write draft with Wanderlust." t)
+
+;; IMAP
+(setq elmo-imap4-default-server "imap.gmail.com")
+(setq elmo-imap4-default-user "nephyer@gmail.com") 
+(setq elmo-imap4-default-authenticate-type 'clear) 
+(setq elmo-imap4-default-port '993)
+(setq elmo-imap4-default-stream-type 'ssl)
+
+(setq elmo-imap4-use-modified-utf7 t) 
+
+;; SMTP
+(setq wl-smtp-connection-type 'starttls)
+(setq wl-smtp-posting-port 587)
+(setq wl-smtp-authenticate-type "plain")
+(setq wl-smtp-posting-user "nephyer")
+(setq wl-smtp-posting-server "smtp.gmail.com")
+(setq wl-local-domain "gmail.com")
+
+(setq wl-default-folder "%inbox")
+(setq wl-default-spec "%")
+(setq wl-draft-folder "%[Gmail]/Drafts") ; Gmail IMAP
+(setq wl-trash-folder "%[Gmail]/Trash")
+
+(setq wl-folder-check-async t) 
+
+(setq elmo-imap4-use-modified-utf7 t)
+
+(autoload 'wl-user-agent-compose "wl-draft" nil t)
+(if (boundp 'mail-user-agent)
+    (setq mail-user-agent 'wl-user-agent))
+(if (fboundp 'define-mail-user-agent)
+    (define-mail-user-agent
+      'wl-user-agent
+      'wl-user-agent-compose
+      'wl-draft-send
+      'wl-draft-kill
+      'mail-send-hook))
+
+
+
+;; Org-mode settings
+(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+(global-set-key "\C-cl" 'org-store-link)
+(global-set-key "\C-ca" 'org-agenda)
+(global-font-lock-mode 1) 

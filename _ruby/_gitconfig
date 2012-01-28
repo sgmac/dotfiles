@@ -1,0 +1,25 @@
+[user]
+    name =  Sergio Galvan
+    email = myemail@domain.com
+
+[alias]
+    ci = commit -a
+    co = checkout
+    st = status
+    praise = blame
+
+[apply]
+    whitespace = strip
+
+[diff]
+    color = auto
+    rename = copy
+
+[pager]
+    color = true
+
+[status]
+    color = auto
+[github]
+	user=USER
+	token="here"
