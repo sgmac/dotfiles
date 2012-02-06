@@ -20,7 +20,7 @@
 ###
 export BASH_ENV="$HOME/.custom"
 export HOSTFILE="$HOME/.hostfile"
-export HISTIGNORE="ls:cat:history*:~:cd ~:exec*:cd*:vi*"
+export HISTIGNORE="ls:cat:history*:~:cd ~:exec*:cd*"
 export HISTCONTROL=ignoreboth
 export HISTSIZE=5000
 export HISTFILESIZE=5000
