@@ -1,58 +1,58 @@
+#####################################################################################
+# Explanation
+######################################################################################
+#
+# DOTGLOB      Pathname expansion for files starting with '.'
+# CHECKWINSIZE Updates the values of LINES and COLUMNS.
+# CDABLE_VARS  Target for builtin 'cd target' if not exists, searches for shell VAR.
+# CDSPELL      Check spell in cd builtin command
+# CHECKJOBS    Check jobs in background before exit
+# CMDHIST      All lines of multiple-line command in the same history entry
+# GLOBSTAR     Expansion path with '**' i.e: ls /usr/local/**
+# HOSTCOMPLET  shopt -s hostcomplet    ssh user@sg [TAB] complets to the hostname. @sg 
+#              But the completion is with @name ,to write user@host => user@@host
+# SOUCERPATH   When doing . FILE , looks for the file in $PATH
+#
+########################################################################################
+
+###
 # Shell env
+###
+export BASH_ENV="$HOME/.custom"
 export HOSTFILE="$HOME/.hostfile"
-export HISTIGNORE="ls:cat:history:~:cd ~"
+export HISTIGNORE="ls:cat:history*:~:cd ~:exec*:cd*:vi*"
 export HISTCONTROL=ignoreboth
 export HISTSIZE=5000
 export HISTFILESIZE=5000
 export EDITOR=vi
 export PATH=$PATH:$HOME/.tmux:${HOME}/.scripts
 
-# allows to copy hidden files
+###
+# Builtins enabled
+###
 shopt -s dotglob 
-# update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 shopt -s histappend
-# If cd DIR  , where DIR could be a variable with a path
 shopt -s cdable_vars
-# Spell CD 
 shopt -s cdspell
-# Check jobs in background before exit
 shopt -s checkjobs
-# All lines of multiple-line command in the same history entry
 shopt -s cmdhist
-# Use ** in expansion path 
 shopt -s globstar
-# shopt -s hostcomplet    ssh user@@sg [TAB] complets to the hostname. @sg 
-# When doing . FILE , looks for the file in $PATH
 shopt -s sourcepath
 
 ###
-#  FILES
+# Loads
 ##
-if [ -f ~/.bash_colors ]; then
-    . ~/.bash_colors
-fi
+[ -f /etc/bash_completion ] &&   { . /etc/bash_completion ;}
+[ -f ~/.bash_colors  ]      &&   { .  ~/.bash_colors      ;}
+[ -f ~/.bash_funcs   ]      &&   { .  ~/.bash_funcs       ;}
+[ -f ~/.bash_aliases ] 	    &&   { .  ~/.bash_aliases     ;}
 
 
-if [ -f ~/.bash_funcs ]; then
-    . ~/.bash_funcs
-fi
-
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
-
-if [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-fi
-
-
-#### If not running interactively, don't do anything
+###
+# Run Interactive 
+###
 [ -z "$PS1" ] && return
-
-
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 prompt
