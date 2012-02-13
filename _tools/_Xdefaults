@@ -33,3 +33,11 @@ URxvt*color15:     #F8FCF8
 xterm*termName: xterm
 xterm*background: #000000
 xterm*foreground: #A8A8A8
+
+URxvt.keysym.C-0: command:\033]710;xft: DejaVu Sans Mono:pixelsize=10:dpi=96\007
+URxvt.keysym.C-1: command:\033]710;xft: DejaVu Sans Mono:pixelsize=12:dpi=96\007
+URxvt.keysym.C-2: command:\033]710;xft: DejaVu Sans Mono:pixelsize=14:dpi=96\007
+URxvt.keysym.C-3: command:\033]710;xft: DejaVu Sans Mono:pixelsize=16:dpi=96\007
+URxvt.keysym.C-4: command:\033]710;xft: DejaVu Sans Mono:pixelsize=18:dpi=96\007
+URxvt.keysym.C-5: command:\033]710;xft: DejaVu Sans Mono:pixelsize=24:dpi=96\007
+URxvt.keysym.C-9: command:\033]710;xft: DejaVu Sans Mono:pixelsize=36:dpi=96\007
