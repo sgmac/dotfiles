@@ -28,16 +28,45 @@ prompt() {
 fi 
 } 
 
-clipit() {
-   if [ "$#" -ge 1 ];
-   then
-     cat "$1" | xclip -selection CLIPBOARD 
-  fi
+#############################
+# Create several repostiories
+#############################
+
+g() {
+	
+   [ $# -lt 1 ] && printf 'repo name missing\n' && return 126 ;
+   for((i=1; i <= $#; i++))
+   do
+	eval repo='$'$i 
+        ssh git@sgmac.com  " mkdir ${repo}.git && cd ${repo}.git && git init --bare &> /dev/null" 
+	
+   done
 }
 
+#############################
+# Gitfy the current directory
+#############################
+
+gitfy() {
+  
+   g ${PWD##*/} 
+
+cat <<-EOF > .gitignore
+*~
+*#
+EOF
+   
+   git init . && git add . && \
+		 git commit -m "First commit" && \ 
+                 git remote add origin ssh://git@sgmac.com/home/git/${PWD##*/}.git && \
+                 git push origin master
+
+}
 ##
 #  inline functions
 ##
 
 efn() { vi $HOME/.bash_funcs; }
 m2pdf() { man -t "$1" | ps2pdf - > ${1}.pdf ; }
+clipit() { [ "$#" -ge 1 ] &&  cat "$1" | xclip -selection CLIPBOARD ; }
+
