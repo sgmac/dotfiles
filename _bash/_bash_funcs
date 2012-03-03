@@ -56,7 +56,7 @@ cat <<-EOF > .gitignore
 *#
 EOF
    
-   git init . && git add . && \
+   git init . && git add . &&\
 		 git commit -m "First commit" && \ 
                  git remote add origin ssh://git@sgmac.com/home/git/${PWD##*/}.git && \
                  git push origin master
