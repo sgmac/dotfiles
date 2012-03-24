@@ -52,7 +52,6 @@ shopt -s sourcepath
 # Run Interactive 
 ###
 [ -z "$PS1" ] && return
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 prompt
 
