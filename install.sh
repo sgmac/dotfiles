@@ -97,7 +97,7 @@ function set_link() {
 		emacs)
 			printf  "\tSetting link for emacs\n"
 			set_msg "7" "ln -s ${dir}"
-			ln -s "${orig}/_${dir}" "${dest}/.${dir}"
+			ln -s "${orig}/_${dir}" "${dest}/.${dir}.d"
 			;;
 		scripts)
 			printf "\tSetting links for scripts\n" 
