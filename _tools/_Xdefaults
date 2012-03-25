@@ -1,4 +1,5 @@
 ## urxvt config
+URxvt*loginShell:true
 URxvt*font: xft:Bitstream Vera Sans Mono:pixelsize=13
 URxvt*termName: rxvt
 URxvt*shading:40

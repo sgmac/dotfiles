@@ -1,3 +1,7 @@
+#############################
+# List background processes
+#   \j works similar 
+############################
 
 get_njobs() {
 njobs=$(jobs | wc -l)
@@ -27,6 +31,31 @@ prompt() {
     fi
 fi 
 } 
+
+##############################
+# Clone repository completion
+##############################
+
+clone() {
+	git clone ssh://git@sgmac.com/home/git/${1} 
+}
+_clone() {
+
+    local cur prev opts
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    prev="${COMP_WORDS[COMP_CWORD-1]}"
+    opts=$( cat $HOME/.repolist )
+
+    if [[ ${cur} == * ]] ; then
+        COMPREPLY=( $(compgen -W "${opts}" ${cur}) )
+        return 0
+    fi
+
+}
+complete -F _clone clone
+
+
 
 #############################
 # Create several repostiories
@@ -62,9 +91,9 @@ EOF
                  git push origin master
 
 }
-##
-#  inline functions
-##
+############################
+# Inline functions
+###########################
 
 efn() { vi $HOME/.bash_funcs; }
 m2pdf() { man -t "$1" | ps2pdf - > ${1}.pdf ; }
