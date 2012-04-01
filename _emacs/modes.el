@@ -46,7 +46,7 @@
 ;;;; Plugins
 ;;
 
-(add-to-list 'load-path "~/.emacs.d/plugins/yasnippet")
+(add-to-list 'load-path "~/.emacs.d/plugins/yas")
 (require 'yasnippet)
 (yas/global-mode 1)
 
