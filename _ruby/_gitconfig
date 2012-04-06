@@ -6,6 +6,7 @@
     ci = commit -a
     co = checkout
     st = status
+    lol = log  --pretty=oneline --abbrev-commit --graph --decorate
     praise = blame
 
 [apply]
@@ -19,7 +20,9 @@
     color = true
 
 [status]
-    color = auto
+   color = auto
+[branch]
+   color = true
 [github]
 	user=USER
 	token="here"
