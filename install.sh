@@ -1,5 +1,16 @@
 #!/bin/bash
 
+########################################################################
+#
+#  - check_dest   "dest"  Checks if dest already exists.
+#  - do_backup    "file"  If file is not a symlink, mv to $backup_dir
+#  - set_link     "file"  Creates symlink for $file
+#  - get_dots	  current Gets _filenames in the current directory
+#  - set_dots     "conf"  Calls function 'set_conf'
+#  - set_msg      "color" "message"
+#
+########################################################################
+
 current_dir=$(dirname $(readlink -f $0) )
 backup_dir="${HOME}/.backdots"
 dest="$HOME"
@@ -56,7 +67,7 @@ function set_ruby() {
 
 }
 
-function set_emacs() {
+function set_emacs.d() {
 
 	set_done   "$1"
 	check_dest "$1"
@@ -90,14 +101,23 @@ function set_link() {
 			       	rsync -avz ${current_dir}/_$dir ${dest}/.${dir} >& /dev/null
 			fi
 
-			if [ "${dest}/.${dir}rc" ];then
-				do_backup "${dest}/.${dir}rc" && ln -s "${orig}/_${dir}/_${dir}rc" "${dest}/.${dir}rc"
+			if [ ! -L "${dest}/.${dir}rc" ];then
+				do_backup "${dest}/.${dir}rc"
+			else
+				unlink "${dest}/.${dir}rc"
 			fi
+
+			ln -s "${orig}/_${dir}/_${dir}rc" "${dest}/.${dir}rc"
 			;;
-		emacs)
+		emacs.d)
 			printf  "\tSetting link for emacs\n"
 			set_msg "7" "ln -s ${dir}"
-			ln -s "${orig}/_${dir}" "${dest}/.${dir}.d"
+
+			if [  -L "${dest}/.${dir}" ];then
+				unlink "${dest}/.${dir}"
+			fi
+
+			ln -s "${orig}/_${dir}" "${dest}/.${dir}"
 			;;
 		scripts)
 			printf "\tSetting links for scripts\n" 
@@ -124,7 +144,6 @@ function set_link_all() {
 }
 
 function check_dest() {
-
 	local dest="${dest}/.${1}"
 	if [ -e "$dest" ];then
 		if [ ! -L "$dest" ];then
@@ -165,5 +184,4 @@ function get_dots() {
 }
 
 get_dots  &&  [ "${SHELL##*/}" == "bash" ] && exec ${SHELL##*/}
-
 
