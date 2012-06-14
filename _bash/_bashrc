@@ -17,14 +17,15 @@
 ###
 # Shell env
 ###
-export BASH_ENV="$HOME/.custom"
-export HOSTFILE="$HOME/.hostfile"
+#export BASH_ENV="$HOME/.custom"
+#export HOSTFILE="$HOME/.hostfile"
+export CUSTOM_SCRIPTS="${HOME}/.scripts"
 export HISTIGNORE="ls:cat:history*:~:cd ~:exec*:cd*"
 export HISTCONTROL=ignoreboth
 export HISTSIZE=5000
 export HISTFILESIZE=5000
 export EDITOR=vi
-export PATH=$PATH:$HOME/.tmux:${HOME}/.scripts
+export PATH="$CUSTOM_SCRIPTS:$PATH"
 
 ###
 # Builtins enabled
@@ -55,4 +56,3 @@ shopt -s sourcepath
 
 prompt
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
