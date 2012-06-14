@@ -1,6 +1,7 @@
 # Adding  profile and bashrc
-. ~/.profile
+#
+[[ -e $HOME/.profile ]] && source $HOME/.profile
 
-. ~/.bashrc
+[[ -e $HOME/.bashrc ]] && source $HOME/.bashrc
 
 eval "$(rbenv init -)"
