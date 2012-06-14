@@ -14,11 +14,13 @@
 # SOUCERPATH   When doing . FILE , looks for the file in $PATH
 #
 ########################################################################################
+# export BASH_ENV="$HOME/.custom"   Adds custom functions to all your scripts.
+# export HOSTFILE="$HOME/.hostfile" Looks up hostname on this file first.
+########################################################################################
+
 ###
 # Shell env
 ###
-#export BASH_ENV="$HOME/.custom"
-#export HOSTFILE="$HOME/.hostfile"
 export CUSTOM_SCRIPTS="${HOME}/.scripts"
 export HISTIGNORE="ls:cat:history*:~:cd ~:exec*:cd*"
 export HISTCONTROL=ignoreboth
