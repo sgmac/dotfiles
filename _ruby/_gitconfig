@@ -1,6 +1,6 @@
 [user]
     name =  Sergio Galvan
-    email = myemail@domain.com
+    email = sergalma@gmail.com
 
 [alias]
     ci = commit -a
@@ -24,5 +24,5 @@
 [branch]
    color = true
 [github]
-	user=USER
-	token="here"
+	user=sgmac
+	token="928658e88a336f44b4b78d423a19a23e"
