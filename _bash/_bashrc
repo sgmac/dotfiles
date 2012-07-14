@@ -28,7 +28,7 @@ export HISTSIZE=5000
 export HISTFILESIZE=5000
 export EDITOR=vi
 export PATH="$CUSTOM_SCRIPTS:$PATH"
-export PROMPT_COMMAND="history -n; history -a"
+
 ###
 # Builtins enabled
 ###
