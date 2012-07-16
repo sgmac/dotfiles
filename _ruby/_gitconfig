@@ -23,6 +23,3 @@
    color = auto
 [branch]
    color = true
-[github]
-	user=sgmac
-	token="928658e88a336f44b4b78d423a19a23e"
