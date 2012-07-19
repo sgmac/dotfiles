@@ -27,7 +27,7 @@ export HISTCONTROL=ignoreboth
 export HISTSIZE=5000
 export HISTFILESIZE=5000
 export EDITOR=vi
-export PATH="$CUSTOM_SCRIPTS:$PATH"
+export PATH="/opt/ec2/bin:$HOME/.rbenv/bin:$CUSTOM_SCRIPTS:$PATH"
 
 ###
 # Builtins enabled
@@ -49,7 +49,7 @@ shopt -s sourcepath
 [ -f ~/.bash_colors  ]      &&   { .  ~/.bash_colors      ;}
 [ -f ~/.bash_funcs   ]      &&   { .  ~/.bash_funcs       ;}
 [ -f ~/.bash_aliases ] 	    &&   { .  ~/.bash_aliases     ;}
-
+[ -f ~/.runec2	     ]	    &&   { . ~/.runec2 		  ;}
 
 ###
 # Run Interactive 
