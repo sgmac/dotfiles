@@ -1,5 +1,5 @@
 #!/bin/bash
 
-echo -ne `free -m  | head -2 | tail -1 | awk '{print $3}'`U
+echo -ne `free -m  | tail -2 | head -1 | awk '{print $3}'`U
 echo -ne "|"  
-echo -ne `free -m  | head -2 | tail -1 | awk '{print $4}'`F
+echo -ne `free -m  | tail -2 | head -1 | awk '{print $4}'`F
