@@ -56,5 +56,7 @@ shopt -s sourcepath
 ###
 [ -z "$PS1" ] && return
 
+
+[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 prompt
 

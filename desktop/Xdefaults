@@ -2,7 +2,7 @@
 URxvt*loginShell:true
 URxvt*font: xft:Bitstream Vera Sans Mono:pixelsize=13
 URxvt*termName: rxvt
-URxvt*shading:40
+URxvt*shading:30
 URxvt*background:  #000000
 URxvt*foreground:  #A8A8A8
 URxvt*scrollBar_right:	false
