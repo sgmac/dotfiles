@@ -43,12 +43,12 @@ def link_files(dotfiles)
     if File.exists?(dest)
       begin
         File.unlink(dest)
-      rescue Errno::EISDIR => e
+      rescue Errno::EISDIR, Errno::EEXIST
         FileUtils.rm_rf(dest)
       end
     end
-    File.symlink("#{ROOT_DOTS}/#{orig}","#{dest}")
     puts "Link to "  + ".#{orig}#{msg}".send(color.to_s)
+    File.symlink("#{ROOT_DOTS}/#{orig}","#{dest}")
   end
 end
 

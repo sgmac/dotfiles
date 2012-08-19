@@ -11,5 +11,5 @@ You can also unlink all the files under _ENV['HOME']_:
 $ ruby install.rb unlink
 ```
 
-If you want to add more dotfiles, drop the files in either default or desktop directories. On the top directory level, you will see folders such as _emacs.d_ or _vim_. By default I drop here the directories that should be linked to the topof my $HOME and they are not dependent neither on console nor desktop.
+If you want to add more dotfiles, drop the files in either default or desktop directories. On the top directory level, you will see folders such as _emacs.d_ or _vim_. By default I drop here the directories that should be linked to the top of my $HOME and they are not dependent neither on console nor desktop.
 
