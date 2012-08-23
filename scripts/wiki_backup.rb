@@ -23,7 +23,7 @@ if File.exists?("#{file}")
 	exit
 end
 
-cmd = "tar czPf --exclude=#{exclude_dirs} #{wiki_path} "
+cmd = "tar czP --exclude=#{exclude_dirs} -f #{file} #{wiki_path} "
 system("#{cmd}")
 
 if $? == 0
