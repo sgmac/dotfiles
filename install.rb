@@ -48,6 +48,9 @@ def link_files(dotfiles)
       end
     end
     puts "Link to "  + ".#{orig}#{msg}".send(color.to_s)
+    if File.symlink?(dest)
+	File.unlink(dest)
+    end
     File.symlink("#{ROOT_DOTS}/#{orig}","#{dest}")
   end
 end
