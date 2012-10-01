@@ -1,5 +1,26 @@
-:syntax on
-:filetype plugin indent on
-:set bg=dark
+" --- Common
+syntax enable
+filetype plugin indent on
+set nocompatible
+set background=dark
+set encoding=utf8
+set showcmd
+set showmode
 
-":call pathogen#infect()
+" --- Plugins
+call pathogen#infect()
+autocmd vimenter * if !argc() | NERDTree | endif
+
+" --- Disabling keys
+nnoremap <up>   <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+
+" --- Gvim
+if has("gui_running")
+   highlight Normal     guifg=grey guibg=black
+   set guioptions-=m 
+   set guioptions-=T
+   set guioptions-=r
+endif
