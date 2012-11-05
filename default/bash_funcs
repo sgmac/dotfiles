@@ -32,65 +32,6 @@ prompt() {
 fi 
 } 
 
-##############################
-# Clone repository completion
-##############################
-
-clone() {
-	git clone ssh://git@sgmac.com/home/git/${1} 
-}
-_clone() {
-
-    local cur prev opts
-    COMPREPLY=()
-    cur="${COMP_WORDS[COMP_CWORD]}"
-    prev="${COMP_WORDS[COMP_CWORD-1]}"
-    opts=$( cat $HOME/.repolist )
-
-    if [[ ${cur} == * ]] ; then
-        COMPREPLY=( $(compgen -W "${opts}" ${cur}) )
-        return 0
-    fi
-
-}
-complete -F _clone clone
-
-
-
-#############################
-# Create several repostiories
-#############################
-
-g() {
-	
-   [ $# -lt 1 ] && printf 'repo name missing\n' && return 126 ;
-   for((i=1; i <= $#; i++))
-   do
-	eval repo='$'$i 
-        ssh git@sgmac.com  " mkdir ${repo}.git && cd ${repo}.git && git init --bare &> /dev/null" 
-	
-   done
-}
-
-#############################
-# Gitfy the current directory
-#############################
-
-gitfy() {
-  
-   g ${PWD##*/} 
-
-cat <<-EOF > .gitignore
-*~
-*#
-EOF
-   
-   git init . && git add . &&\
-		 git commit -m "First commit" && \ 
-                 git remote add origin ssh://git@sgmac.com/home/git/${PWD##*/}.git && \
-                 git push origin master
-
-}
 ############################
 # Inline functions
 ###########################
