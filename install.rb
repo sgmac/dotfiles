@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 require 'fileutils'
 require 'pathname'
-require 'colored'
 
 ROOT_DOTS = File.expand_path(File.dirname(__FILE__))
 
@@ -34,7 +33,7 @@ def link_files(dotfiles)
         FileUtils.rm_rf(dest)
       end
     end
-    puts "Link to "  + ".#{orig}#{msg}".send(color.to_s)
+    puts "Link to "  + ".#{orig}#{msg}"
     if File.symlink?(dest)
 	File.unlink(dest)
     end
