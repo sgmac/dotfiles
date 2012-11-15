@@ -4,3 +4,4 @@ xscreensaver -no-splash &
 volumeicon -b &
 urxvt -e tmux &
 conky &
+dropbox start &

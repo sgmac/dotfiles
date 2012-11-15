@@ -20,6 +20,7 @@ nnoremap <right> <nop>
 " --- Gvim
 if has("gui_running")
    highlight Normal     guifg=grey guibg=black
+   colorschem badwolf
    set guioptions-=m 
    set guioptions-=T
    set guioptions-=r
