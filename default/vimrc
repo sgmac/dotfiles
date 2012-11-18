@@ -7,6 +7,9 @@ set encoding=utf8
 set showcmd
 set showmode
 
+" --- Key mapping
+imap jk <ESC>
+
 " --- Plugins
 call pathogen#infect()
 autocmd vimenter * if !argc() | NERDTree | endif
