@@ -1,11 +1,29 @@
 " --- Common
 syntax enable
 filetype plugin indent on
+
+
 set nocompatible
 set background=dark
 set encoding=utf8
 set showcmd
 set showmode
+set backspace=indent,eol,start
+set backupdir=~/.vimswp
+set directory=~/.vimswp
+
+set wildmode=list:longest
+set history=1000
+set scrolloff=3
+set hlsearch
+set incsearch
+set hidden
+set wildmenu
+set ignorecase
+set smartcase
+set title
+
+runtime macros/matchit.vim
 
 " --- Key mapping
 imap jk <ESC>
@@ -19,6 +37,8 @@ nnoremap <up>   <nop>
 nnoremap <down> <nop>
 nnoremap <left> <nop>
 nnoremap <right> <nop>
+nnoremap <C-e> 3<C-e>
+nnoremap <C-y> 3<C-y>
 
 " --- Gvim
 if has("gui_running")
