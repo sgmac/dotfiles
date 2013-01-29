@@ -71,11 +71,13 @@
     </font>
   </theme>
   <desktops>
-    <number>2</number>
+    <number>4</number>
     <firstdesk>1</firstdesk>
     <names>
-      <name>main</name>
-      <name>extra</name>
+      <name>1</name>
+      <name>2</name>
+      <name>9</name>
+      <name>0</name>
     </names>
     <popupTime>875</popupTime>
   </desktops>
@@ -237,9 +239,19 @@
         <to>2</to>
       </action>
     </keybind>
-    <keybind key="W-d">
-      <action name="ToggleShowDesktop"/>
+    <keybind key="W-9">
+      <action name="GoToDesktop">
+        <to>3</to>
+      </action>
     </keybind>
+   <keybind key="W-0">
+      <action name="GoToDesktop">
+        <to>4</to>
+      </action>
+   </keybind>
+   <keybind key="W-d">
+      <action name="ToggleShowDesktop"/>
+   </keybind>
     <!-- Keybindings for windows -->
     <keybind key="W-S-c">
       <action name="Close"/>
@@ -332,6 +344,7 @@
     <screenEdgeWarpMouse>false</screenEdgeWarpMouse>
     <!-- Set this to TRUE to move the mouse pointer across the desktop when
        switching due to hitting the edge of the screen -->
+
     <context name="Frame">
       <mousebind button="A-Left" action="Press">
         <action name="Focus"/>
@@ -378,15 +391,16 @@
       </mousebind>
       <mousebind button="W-S-F1" action="Click">
         <action name="SendToDesktop">
-          <to>main</to>
+          <to>1</to>
         </action>
       </mousebind>
       <mousebind button="W-S-F2" action="Click">
         <action name="SendToDesktop">
-          <to>extra</to>
+          <to>2</to>
         </action>
       </mousebind>
     </context>
+
     <context name="Titlebar">
       <mousebind button="Left" action="Drag">
         <action name="Move"/>
@@ -568,6 +582,7 @@
         </action>
       </mousebind>
     </context>
+
     <context name="Close">
       <mousebind button="Left" action="Press">
         <action name="Focus"/>
@@ -618,6 +633,8 @@
         <action name="Raise"/>
       </mousebind>
     </context>
+
+
     <context name="Root">
       <!-- Menus -->
       <mousebind button="Middle" action="Press">
@@ -631,6 +648,8 @@
         </action>
       </mousebind>
     </context>
+ 
+
     <context name="MoveResize">
       <mousebind button="Up" action="Click">
         <action name="GoToDesktop">
@@ -641,7 +660,8 @@
         <action name="GoToDesktop">
           <to>next</to>
         </action>
-      </mousebind>
+</mousebind>
+
       <mousebind button="A-Up" action="Click">
         <action name="GoToDesktop">
           <to>previous</to>
@@ -652,8 +672,11 @@
           <to>next</to>
         </action>
       </mousebind>
+
+
     </context>
   </mouse>
+
   <menu>
     <file>menu.xml</file>
     <hideDelay>200</hideDelay>
@@ -664,8 +687,9 @@
     <manageDesktops>yes</manageDesktops>
   </menu>
   <applications>
-    <application name="urxvt"><decor>no</decor><focus>yes</focus><layer>below</layer><desktop>1</desktop><monitor>2</monitor><maximized>true</maximized> </application>
-    <application name="pidgin"><decor>no</decor><focus>yes</focus><layer>below</layer><desktop>extra</desktop><monitor>1</monitor></application>
+    <application name="urxvt"><decor>no</decor><focus>yes</focus><layer>normal</layer><monitor>2</monitor><maximized>true</maximized> </application>
+    <!-- <application name="pidgin"><decor>no</decor><focus>yes</focus><monitor>2</monitor><desktop>5</desktop><layer>normal</layer></application> -->
+    <application name="pidgin"><decor>no</decor><focus>yes</focus><layer>normal</layer><desktop>5</desktop><monitor>1</monitor></application>
     <application name="spotify"><monitor>1</monitor><desktop>2</desktop></application> 
     <application name="transmision-gtk"><monitor>2</monitor><desktop>2</desktop></application> 
  </applications>
