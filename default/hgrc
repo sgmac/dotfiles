@@ -1,0 +1,17 @@
+[ui]
+username = Sergio Galvan <sergalma@gmail.com>
+editor = vim
+merge = vimdiff
+
+[extensions]
+graphlog =
+color = 
+
+[color]
+status.unknown = yellow bold
+diff.file_a = red bold underline
+diff.file_b = green bold underline
+diff.hunk = blue bold
+diff.deleted = red bold
+diff.inserted = green bold
+
