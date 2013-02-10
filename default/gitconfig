@@ -1,25 +1,30 @@
 [user]
-    name =  Sergio Galvan
-    email = sergalma@gmail.com
+	name =  Sergio Galvan
+	email = sergalma@gmail.com
 
 [alias]
-    ci = commit -a
-    co = checkout
-    st = status
-    lol = log  --pretty=oneline --abbrev-commit --graph --decorate
-    praise = blame
+	ci = commit -a
+	co = checkout
+	st = status
+	lol = log  --pretty=oneline --abbrev-commit --graph --decorate
+	praise = blame
+	ds = diff --staged
+	amend = commit --amend -C HEAD
+	undo = reset --soft HEAD^
+
+
 
 [apply]
-    whitespace = strip
+	whitespace = strip
 
 [diff]
-    color = auto
-    rename = copy
+	color = auto
+	rename = copy
 
 [pager]
-    color = true
+	color = true
 
 [status]
-   color = auto
+	color = auto
 [branch]
-   color = true
+	color = true
