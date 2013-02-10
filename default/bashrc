@@ -18,6 +18,7 @@
 # export HOSTFILE="$HOME/.hostfile" Looks up hostname on this file first.
 ########################################################################################
 
+
 ###
 # Shell env
 ###
@@ -27,7 +28,9 @@ export HISTCONTROL=ignoreboth
 export HISTSIZE=5000
 export HISTFILESIZE=5000
 export EDITOR=vi
+export TERM=screen-256color
 export PATH="/opt/ec2/bin:$HOME/.rbenv/bin:$CUSTOM_SCRIPTS:$PATH"
+export PS1="${lr}\u${dy}@${r}${lg}\h${r}:${ly}{\W}\$(get_njobs)${r}${lp}\$(git_branch)${r} "
 
 ###
 # Builtins enabled
@@ -58,5 +61,5 @@ shopt -s sourcepath
 
 
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
-prompt
 
+tput init
