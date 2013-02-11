@@ -6,8 +6,3 @@ I keep configuration files for both, console and desktop. Basically the _install
  $ python install.py desktop
 ```
 
-You can also unlink all the files under _ENV['HOME']_:
-```bash
-$ python install.py unlink
-```
-
