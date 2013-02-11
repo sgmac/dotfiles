@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/home/deploys/.ssh'
+let g:netrw_dirhist_2='/home/deploys/lab/expect'
+let g:netrw_dirhist_3='/home/deploys/lab/flask/examples/jqueryexample/templates'
+let g:netrw_dirhist_4='/home/deploys/git/gtasks/.git'
+let g:netrw_dirhist_5='/home/deploys/.vim'
+let g:netrw_dirhist_6='/home/deploys/downloads/garethr-graphite-0.0.5/spec/classes/graphite'
+let g:netrw_dirhist_7='/home/deploys/lab/lpic/centos'
+let g:netrw_dirhist_8='/home/deploys/git/katas/jan/python'
+let g:netrw_dirhist_9='/home/deploys/downloads/garethr-spotify-0.0.1/spec/classes/spotify'
