@@ -6,7 +6,7 @@ require 'pathname'
 ROOT_DOTS = File.expand_path(File.dirname(__FILE__))
 
 def unlink_all
-  puts "Unlinking all files in #{ENV['HOME']}".red
+  puts "Unlinking all files in #{ENV['HOME']}"
   Dir["#{ENV['HOME']}/{*,.*}"].each do |file|
     File.unlink(file) if File.symlink?(file)
   end
