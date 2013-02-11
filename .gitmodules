@@ -1,6 +1,0 @@
-[submodule "default/vim/bundle/minibufexpl"]
-	path = default/vim/bundle/minibufexpl
-	url = git://github.com/fholgado/minibufexpl.vim.git
-[submodule "default/vim/bundle/nerdtree"]
-	path = deafault/vim/bundle/nerdtree.git
-	url = git://github.com/scrooloose/nerdtree.git
