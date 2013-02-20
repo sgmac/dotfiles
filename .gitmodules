@@ -34,3 +34,6 @@
 [submodule "default/vim/bundle/python"]
 	path = default/vim/bundle/python
 	url = git://github.com/klen/python-mode.git
+[submodule "default/vim/bundle/syntastic"]
+	path = default/vim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
