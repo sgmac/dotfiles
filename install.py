@@ -14,7 +14,9 @@ def link_default():
         dest = os.path.join(HOME, '.%s' % file)
         print 'Symlink to .%s' % file
         try:
-            os.symlink(source, dest)
+            if os.path.exists(dest):
+                os.unlink(dest)
+        os.symlink(source, dest)
         except OSError:
             continue
 
