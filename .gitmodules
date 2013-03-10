@@ -50,3 +50,6 @@
 	path = default/vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
 	ignore = dirty
+[submodule "default/vim/bundle/gitgutter"]
+	path = default/vim/bundle/gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
