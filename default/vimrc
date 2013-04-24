@@ -27,6 +27,10 @@ runtime macros/matchit.vim
 
 " --- Key mapping
 imap jk <ESC>
+map 9 :bp<CR>
+map 0 :bn<CR>
+nnoremap <space> za
+vnoremap <space> zf
 
 " --- Plugins
 call pathogen#infect()
