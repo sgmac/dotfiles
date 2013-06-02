@@ -56,7 +56,7 @@ if __name__ == '__main__':
     (options, args) = parser.parse_args()
     if len(sys.argv) < 2:
         parser.print_help()
-    if options.redhat is True:
+    if options.redhat:
         show_rpm()
-    if options.debian is True:
+    if options.debian:
         show_dpkg()
