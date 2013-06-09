@@ -16,7 +16,7 @@ def link_default():
         try:
             if os.path.exists(dest):
                 os.unlink(dest)
-        os.symlink(source, dest)
+            os.symlink(source, dest)
         except OSError:
             continue
 
