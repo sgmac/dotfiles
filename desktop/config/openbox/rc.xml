@@ -117,12 +117,31 @@
   <!-- KEYBOARD CUSTOMS -->
   <keyboard>
     <!-- MY CUSTOM KEYS -->
-       <keybind key="W-S-e">
+    <keybind key="W-S-e">
       <action name="Execute">
         <command>emacs</command>
       </action>
     </keybind>
-
+    <keybind key="XF86MonBrightnessUp">
+      <action name="Execute">
+        <command>xbacklight -inc +5%</command>
+      </action>
+    </keybind>
+    <keybind key="XF86MonBrightnessDown">
+      <action name="Execute">
+        <command>xbacklight -dec 5%</command>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioMute">
+      <action name="Execute">
+        <command>amixer -q set Master mute</command>
+      </action>
+    </keybind>
+    <keybind key="W-XF86AudioMute">
+      <action name="Execute">
+        <command>amixer -q set Master unmute</command>
+      </action>
+    </keybind>
 <keybind key="W-Up">
       <action name="Execute">
         <command>amixer -q set Master 1+ unmute</command>
