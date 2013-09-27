@@ -23,14 +23,23 @@ set ignorecase
 set smartcase
 set title
 
+" When doing search and replace, add g flag by default"
+set gdefault
+set undolevels=1000
+
+"Enable spell checking
+"set spell
+"set spelllang=en
+
 runtime macros/matchit.vim
 
 " --- Key mapping
 imap jk <ESC>
 map 9 :bp<CR>
-map 0 :bn<CR>
 nnoremap <space> za
 vnoremap <space> zf
+nnoremap <f12> :e $MYVIMRC<CR>
+map      <f2> :NERDTreeToggle <CR>
 
 " --- Plugins
 call pathogen#infect()
@@ -51,4 +60,18 @@ if has("gui_running")
    set guioptions-=m 
    set guioptions-=T
    set guioptions-=r
+
+   "Disable NERDTree arrows
+   "let g:NERDTreeDirArrows=0
+   
+   if has("gui_gtk2")
+	   "set guifont=Luxi\ Mono\ 12
+		   set guifont=Lucida\ Console\ 11
+   elseif has("x11")
+	   " Also for GTK 1
+	   set guifont=*-lucidatypewriter-medium-r-normal-*-*-180-*-*-m-*-*
+   elseif has("gui_win32")
+	   set guifont=Luxi_Mono:h12:cANSI
+   endif
+
 endif
