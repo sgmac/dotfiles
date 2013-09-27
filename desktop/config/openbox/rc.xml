@@ -263,14 +263,14 @@
         <to>3</to>
       </action>
     </keybind>
-   <keybind key="W-0">
+    <keybind key="W-0">
       <action name="GoToDesktop">
         <to>4</to>
       </action>
-   </keybind>
-   <keybind key="W-d">
+    </keybind>
+    <keybind key="W-d">
       <action name="ToggleShowDesktop"/>
-   </keybind>
+    </keybind>
     <!-- Keybindings for windows -->
     <keybind key="W-S-c">
       <action name="Close"/>
@@ -363,7 +363,6 @@
     <screenEdgeWarpMouse>false</screenEdgeWarpMouse>
     <!-- Set this to TRUE to move the mouse pointer across the desktop when
        switching due to hitting the edge of the screen -->
-
     <context name="Frame">
       <mousebind button="A-Left" action="Press">
         <action name="Focus"/>
@@ -419,7 +418,6 @@
         </action>
       </mousebind>
     </context>
-
     <context name="Titlebar">
       <mousebind button="Left" action="Drag">
         <action name="Move"/>
@@ -601,7 +599,6 @@
         </action>
       </mousebind>
     </context>
-
     <context name="Close">
       <mousebind button="Left" action="Press">
         <action name="Focus"/>
@@ -652,8 +649,6 @@
         <action name="Raise"/>
       </mousebind>
     </context>
-
-
     <context name="Root">
       <!-- Menus -->
       <mousebind button="Middle" action="Press">
@@ -667,8 +662,6 @@
         </action>
       </mousebind>
     </context>
- 
-
     <context name="MoveResize">
       <mousebind button="Up" action="Click">
         <action name="GoToDesktop">
@@ -679,8 +672,7 @@
         <action name="GoToDesktop">
           <to>next</to>
         </action>
-</mousebind>
-
+      </mousebind>
       <mousebind button="A-Up" action="Click">
         <action name="GoToDesktop">
           <to>previous</to>
@@ -691,11 +683,8 @@
           <to>next</to>
         </action>
       </mousebind>
-
-
     </context>
   </mouse>
-
   <menu>
     <file>menu.xml</file>
     <hideDelay>200</hideDelay>
@@ -706,10 +695,28 @@
     <manageDesktops>yes</manageDesktops>
   </menu>
   <applications>
-    <application name="urxvt"><decor>no</decor><focus>yes</focus><layer>normal</layer><monitor>2</monitor><maximized>true</maximized> </application>
-    <!-- <application name="pidgin"><decor>no</decor><focus>yes</focus><monitor>2</monitor><desktop>5</desktop><layer>normal</layer></application> -->
-    <application name="pidgin"><decor>no</decor><focus>yes</focus><layer>normal</layer><desktop>5</desktop><monitor>1</monitor></application>
-    <application name="spotify"><monitor>1</monitor><desktop>2</desktop></application> 
-    <application name="transmision-gtk"><monitor>2</monitor><desktop>2</desktop></application> 
- </applications>
+    <application name="urxvt">
+      <decor>no</decor>
+      <focus>yes</focus>
+      <layer>normal</layer>
+      <monitor>2</monitor>
+      <maximized>true</maximized>
+    </application>
+    <application name="spotify">
+      <monitor>1</monitor>
+      <desktop>2</desktop>
+    </application>
+    <application name="xpad">
+      <monitor>1</monitor>
+      <desktop>2</desktop>
+    </application>
+    <application name="pidgin">
+      <monitor>1</monitor>
+      <desktop>3</desktop>
+    </application>
+    <application name="xchat">
+      <monitor>1</monitor>
+      <desktop>4</desktop>
+    </application>
+      </applications>
 </openbox_config>
