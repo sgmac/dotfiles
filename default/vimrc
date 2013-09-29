@@ -44,6 +44,7 @@ map      <f2> :NERDTreeToggle <CR>
 " --- Plugins
 call pathogen#infect()
 autocmd vimenter * if !argc() | NERDTree | endif
+autocmd BufNewFile,BufRead *.yaml,*.yml silent
 
 " --- Disabling keys
 nnoremap <up>   <nop>
