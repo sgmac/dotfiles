@@ -42,7 +42,13 @@ def link_desktop():
 
 
 if  __name__ == '__main__':
-    if len(sys.argv) > 1 and sys.argv[1] == 'desktop':
-        link_desktop()
+    PATH = os.path.join(os.environ.get('HOME'), '.vimswp')
+    if os.path.exists(PATH):
+        pass
     else:
-        link_default()
+        print("Creating .vimswp directory")
+        os.mkdir(PATH)
+        if len(sys.argv) > 1 and sys.argv[1] == 'desktop':
+            link_desktop()
+        else:
+            link_default()
