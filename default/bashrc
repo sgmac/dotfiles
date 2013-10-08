@@ -30,7 +30,11 @@ export HISTFILESIZE=5000
 export EDITOR=vi
 export TERM=screen-256color
 export PATH="/opt/ec2/bin:$HOME/.rbenv/bin:$CUSTOM_SCRIPTS:$PATH"
-export PS1="${lr}\u${dy}@${r}${lg}\h${r}:${ly}{\W}\$(get_njobs)${r}${lp}\$(git_branch)${r} "
+if [ -f "$HOME/.bash_prompt" ];then
+	. "$HOME/.bash_prompt"
+else
+	export PS1="${lr}\u${dy}@${r}${lg}\h${r}:${ly}{\W}\$(get_njobs)${r}${lp}\$(git_branch)${r} "
+fi
 
 ###
 # Builtins enabled
