@@ -5,3 +5,4 @@ volumeicon -b &
 urxvt -e tmux &
 conky &
 dropbox start &
+xset m 3 10 &
