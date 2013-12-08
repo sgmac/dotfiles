@@ -14,6 +14,7 @@ set directory=~/.vimswp
 
 set wildmode=list:longest
 set history=1000
+set undolevels=1000
 set scrolloff=3
 set hlsearch
 set incsearch
@@ -25,11 +26,6 @@ set title
 
 " When doing search and replace, add g flag by default"
 set gdefault
-set undolevels=1000
-
-"Enable spell checking
-"set spell
-"set spelllang=en
 
 runtime macros/matchit.vim
 
@@ -45,6 +41,47 @@ map      <f2> :NERDTreeToggle <CR>
 call pathogen#infect()
 autocmd vimenter * if !argc() | NERDTree | endif
 autocmd BufNewFile,BufRead *.yaml,*.yml silent
+
+" --- Save file using update, only if there are changes, conflics
+" --- if you want to send Vim to background.
+
+"noremap <C-Z> :update<CR>
+vnoremap <C-Z> :update<CR>
+inoremap <C-Z> :update<CR>
+
+" --- Closing faster
+let mapleader=","
+noremap <Leader>e :quit<CR>
+noremap <Leader>E :qa!<CR>
+
+
+" --- Tab navigating
+map <Leader>n 	<esc>:tabprevious<CR>
+map <Leader>m 	<esc>:tabnext<CR>
+map <Leader>q	<esc>:tabclose<CR>
+map <Leader>c	<esc>:tabnew<CR>
+
+
+" --- Moving code blocks
+vnoremap < <gv
+vnoremap > >gv
+
+" --- Sort in vistual mode
+map <Leader>s :sort<CR>
+
+" --- Highlight column more 80 chars
+call matchadd('ColorColumn', '\%81v', 100)
+highlight ColorColumn ctermbg=magenta
+set colorcolumn=81
+
+" --- Visual split of line according column=80
+vmap Q 	gq
+vmap Q  gqap
+
+
+" --- Autoreload vimrc
+autocmd! bufwritepost .vimrc source %
+
 
 " --- Disabling keys
 nnoremap <up>   <nop>
