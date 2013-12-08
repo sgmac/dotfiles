@@ -53,3 +53,6 @@
 [submodule "default/vim/bundle/gitgutter"]
 	path = default/vim/bundle/gitgutter
 	url = https://github.com/airblade/vim-gitgutter.git
+[submodule "default/vim/bundle/vim-airline"]
+	path = default/vim/bundle/vim-airline
+	url = https://github.com/bling/vim-airline
