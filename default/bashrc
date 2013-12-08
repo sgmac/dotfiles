@@ -67,7 +67,7 @@ shopt -s sourcepath
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
 ### Virtualenv wrapper
+VIRTUALENV="/usr/local/bin/virtualenvwrapper.sh"
 
-source "/usr/local/bin/virtualenvwrapper.sh"
-export WORKON_HOME="$HOME/lab/virtualenv"
-
+[[ -e $VIRTUALENV ]] && source  $VIRTUALENV
+export WORKON_HOME="$HOME/.virtualenvs"
