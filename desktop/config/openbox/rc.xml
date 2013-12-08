@@ -116,7 +116,12 @@
   </dock>
   <!-- KEYBOARD CUSTOMS -->
   <keyboard>
-    <!-- MY CUSTOM KEYS -->
+	  <!-- MY CUSTOM KEYS -->
+    <keybind key="W-s">
+      <action name="Execute">
+	      <command>~/.scripts/suspend.sh</command>
+      </action>
+    </keybind>
     <keybind key="W-S-e">
       <action name="Execute">
         <command>emacs</command>
