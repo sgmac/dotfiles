@@ -42,7 +42,7 @@ call pathogen#infect()
 autocmd vimenter * if !argc() | NERDTree | endif
 autocmd BufNewFile,BufRead *.yaml,*.yml silent
 
-" --- Save file using update, only if there are changes, conflics
+" --- Save file using update, only if there are changes, conflics 
 " --- if you want to send Vim to background.
 
 "noremap <C-Z> :update<CR>
@@ -63,8 +63,8 @@ map <Leader>c	<esc>:tabnew<CR>
 
 
 " --- Moving code blocks
-vnoremap < <gv
-vnoremap > >gv
+vnoremap < <gv 
+vnoremap > >gv 
 
 " --- Sort in vistual mode
 map <Leader>s :sort<CR>
@@ -76,10 +76,10 @@ set colorcolumn=81
 
 " --- Visual split of line according column=80
 vmap Q 	gq
-vmap Q  gqap
+vmap Q  gqap 
 
 
-" --- Autoreload vimrc
+" --- Autoreload vimrc 
 autocmd! bufwritepost .vimrc source %
 
 
@@ -94,29 +94,68 @@ nnoremap <C-y> 3<C-y>
 " Normal mode
 nnoremap <C-j> :m .+1<CR>==
 nnoremap <C-k> :m .-2<CR>==
+nnoremap <f5> :!ctags -R<CR>
+nnoremap <F3> :TlistOpen<CR>
 
-" Insert mode
-"inoremap <C-j> <ESC>:m .+1<CR>==gi
-"inoremap <C-k> <ESC>:m .-2<CR>==gi
 
 " Visual mode
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
 
+""----- Pymode -----""
+
+let g:pymode_rope = 1
+
+" Disable check	on every save
+let g:pymode_lint_write = 1
+let g:pymode_run_key = 'R'
+
+
+" Documentation
+let g:pymode_doc = 1
+let g:pymode_doc_key = 'K'
+
+"Linting
+" Auto jump on first error
+let g:pymode_lint_jump = 1
+let g:pymode_lint = 1
+let g:pymode_lint_checker = "pyflakes,pep8"
+
+" Support virtualenv
+let g:pymode_virtualenv = 1
+
+" Syntax highlighting
+let g:pymode_syntax = 1
+let g:pymode_syntax_all = 1
+let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+let g:pymode_syntax_space_errors = g:pymode_syntax_all
+autocmd FileType python setlocal number tabstop=4 expandtab shiftwidth=4 softtabstop=4
+
+
+" -- CtrlP plugin
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+let g:ctrlp_max_height = 30
+set wildignore+=*.pyc
+set runtimepath+=$HOME/.vim/plugin
+set tags=./tags;~/Projects
+
+
+" YAML auto indent
+autocmd Filetype *.yaml,*.yml set fdm=indent
+
+
+" --- Better folding
+set nofoldenable
 
 " --- Gvim
 if has("gui_running")
-   highlight Normal     guifg=grey guibg=black
    colorschem badwolf
    set guioptions-=m 
    set guioptions-=T
    set guioptions-=r
 
-   "Disable NERDTree arrows
-   "let g:NERDTreeDirArrows=0
    
    if has("gui_gtk2")
-	   "set guifont=Luxi\ Mono\ 12
 		   set guifont=Lucida\ Console\ 11
    elseif has("x11")
 	   " Also for GTK 1
