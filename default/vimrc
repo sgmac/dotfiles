@@ -69,11 +69,6 @@ vnoremap > >gv
 " --- Sort in vistual mode
 map <Leader>s :sort<CR>
 
-" --- Highlight column more 80 chars
-call matchadd('ColorColumn', '\%81v', 100)
-highlight ColorColumn ctermbg=magenta
-set colorcolumn=81
-
 " --- Visual split of line according column=80
 vmap Q 	gq
 vmap Q  gqap 
