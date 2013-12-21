@@ -12,6 +12,7 @@ case $OPTION in
 	activate)
 		xrandr --output LVDS1 --off
 		xrandr --output DP1 --auto --output VGA1 --auto --right-of DP1
+		feh --bg-scale $HOME/wallpapers/old_bridge.jpg
 		;;
 	deactivate)
 		xrandr --output VGA1 --off
