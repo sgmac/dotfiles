@@ -71,3 +71,7 @@ VIRTUALENV="/usr/local/bin/virtualenvwrapper.sh"
 
 [[ -e $VIRTUALENV ]] && source  $VIRTUALENV
 export WORKON_HOME="$HOME/.virtualenvs"
+
+
+### Ansible hosts
+export ANSIBLE_HOSTS="$HOME/.ansible_hosts"
