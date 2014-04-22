@@ -29,7 +29,7 @@ export HISTSIZE=5000
 export HISTFILESIZE=5000
 export EDITOR=vi
 export TERM=screen-256color
-export PATH="/opt/ec2/bin:$HOME/.rbenv/bin:$CUSTOM_SCRIPTS:$PATH"
+export PATH="/opt/ec2/bin:$HOME/.rbenv/bin:$CUSTOM_SCRIPTS:$PATH:/usr/local/go/bin"
 if [ -f "$HOME/.bash_prompt" ];then
 	. "$HOME/.bash_prompt"
 else
