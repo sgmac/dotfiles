@@ -8,9 +8,11 @@
 	st = status
 	lol = log  --pretty=oneline --abbrev-commit --graph --decorate
 	praise = blame
-	ds = diff --staged
+	df = diff
+	dfs = diff --staged
 	amend = commit --amend -C HEAD
 	undo = reset --soft HEAD^
+	br = branch
 
 
 
