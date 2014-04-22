@@ -1,6 +1,7 @@
 alias emacs='emacs -nw'
 alias upd='sudo aptitude update' 
 alias upg='sudo aptitude update && sudo aptitude full-upgrade' 
+alias vps='ssh sgmac.com'
 if [ -x /usr/bin/dircolors ]; then
     eval "`dircolors -b`"
     alias dir='dir --color=auto'
