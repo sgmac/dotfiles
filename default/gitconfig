@@ -30,3 +30,5 @@
 	color = auto
 [branch]
 	color = true
+[push]
+	default = simple
