@@ -81,3 +81,6 @@ export ANSIBLE_HOSTS="$HOME/.ansible_hosts"
 
 ### Pip cache
 export PIP_DOWNLOAD_CACHE=$HOME/.pip_download_cache
+
+[[ -s /home/deploy/.autojump/etc/profile.d/autojump.sh ]] && source /home/deploy/.autojump/etc/profile.d/autojump.sh
+

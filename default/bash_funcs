@@ -5,8 +5,8 @@
 
 get_njobs() {
 njobs=$(jobs | wc -l)
- if [ $njobs -gt "0" ]; then
-        echo $njobs |  sed -e 's/\([0-9]*\)/(\1)/g'
+ if [ $njobs -gt "1" ]; then
+        echo $(($njobs-1)) |  sed -e 's/\([0-9]*\)/(\1)/g'
  fi
 }
 
@@ -24,4 +24,4 @@ git_branch() {
 efn() { vi $HOME/.bash_funcs; }
 m2pdf() { man -t "$1" | ps2pdf - > ${1}.pdf ; }
 clipit() { [ "$#" -ge 1 ] &&  cat "$1" | xclip -selection CLIPBOARD ; }
-rsa() { ssh-keygen -R $1 ; }
+sa() { ssh-keygen -R $1 ; }
