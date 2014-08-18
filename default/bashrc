@@ -77,7 +77,7 @@ export WORKON_HOME="$HOME/.virtualenvs"
 export ANSIBLE_HOSTS="$HOME/.ansible_hosts"
 
 ### Tmuxinator
-source ~/.bin/tmuxinator.bash
+[[ -e ~/.bin/tmuxinator.bash ]] && source ~/.bin/tmuxinator.bash
 
 ### Pip cache
 export PIP_DOWNLOAD_CACHE=$HOME/.pip_download_cache
