@@ -65,3 +65,9 @@
 [submodule "default/vim/bundle/vim-snippets"]
 	path = default/vim/bundle/vim-snippets
 	url = https://github.com/honza/vim-snippets.git
+[submodule "default/vim/bundle/vim-go"]
+	path = default/vim/bundle/vim-go
+	url = https://github.com/fatih/vim-go
+[submodule "default/vim/bundle/tagbar"]
+	path = default/vim/bundle/tagbar
+	url = https://github.com/majutsushi/tagbar
