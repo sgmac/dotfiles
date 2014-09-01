@@ -71,3 +71,6 @@
 [submodule "default/vim/bundle/tagbar"]
 	path = default/vim/bundle/tagbar
 	url = https://github.com/majutsushi/tagbar
+[submodule "default/vim/bundle/delimitMate"]
+	path = default/vim/bundle/delimitMate
+	url = https://github.com/Raimondi/delimitMate
