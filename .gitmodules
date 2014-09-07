@@ -74,3 +74,6 @@
 [submodule "default/vim/bundle/delimitMate"]
 	path = default/vim/bundle/delimitMate
 	url = https://github.com/Raimondi/delimitMate
+[submodule "default/vim/bundle/vim-multiple-cursors"]
+	path = default/vim/bundle/vim-multiple-cursors
+	url = https://github.com/terryma/vim-multiple-cursors
