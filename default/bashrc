@@ -34,7 +34,7 @@ export PATH="$GOPATH/bin:/opt/ec2/bin:$HOME/.rbenv/bin:$CUSTOM_SCRIPTS:$PATH:/us
 if [ -f "$HOME/.bash_prompt" ];then
 	. "$HOME/.bash_prompt"
 else
-	export PS1="${lr}\u${dy}@${r}${lg}\h${r}:${ly}{\W}\$(get_njobs)${r}${lp}\$(git_branch)${r} "
+	export PS1="${lr}~>${r}${lg}{\W}${r}${lp}\$(get_njobs)\$(git_branch)${r}"
 fi
 
 ###
