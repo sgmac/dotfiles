@@ -43,12 +43,16 @@ def link_desktop():
 
 if  __name__ == '__main__':
     PATH = os.path.join(os.environ.get('HOME'), '.vimswp')
-    print("Creating .vimswp directory")
+    platform = sys.platform
     try:
         os.mkdir(PATH)
     except:
         pass
     if len(sys.argv) > 1 and sys.argv[1] == 'desktop':
-        link_desktop()
+        if not 'darwin' in platform:
+            link_desktop()
+        else:
+            print("Desktop configuration is only available on Linux systems.")
+            sys.exit(1)
     else:
         link_default()
