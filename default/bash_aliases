@@ -1,7 +1,8 @@
-alias emacs='emacs -nw'
-alias upd='sudo aptitude update' 
-alias upg='sudo aptitude update && sudo aptitude full-upgrade' 
 alias vps='ssh sgmac.com'
+alias ls='ls -FG'
+alias la='ls -FaG'
+alias ll='ls -FlaG'
+
 if [ -x /usr/bin/dircolors ]; then
     eval "`dircolors -b`"
     alias dir='dir --color=auto'
@@ -13,4 +14,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
+    alias upd='sudo aptitude update' 
+    alias upg='sudo aptitude update && sudo aptitude full-upgrade' 
+    alias emacs='emacs -nw'
 fi
