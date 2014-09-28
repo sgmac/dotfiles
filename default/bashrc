@@ -45,9 +45,7 @@ shopt -s checkwinsize
 shopt -s histappend
 shopt -s cdable_vars
 shopt -s cdspell
-shopt -s checkjobs
 shopt -s cmdhist
-shopt -s globstar
 shopt -s sourcepath
 
 ###
@@ -68,6 +66,7 @@ shopt -s sourcepath
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
 ### Virtualenv wrapper
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
 VIRTUALENV="/usr/local/bin/virtualenvwrapper.sh"
 
 [[ -e $VIRTUALENV ]] && source  $VIRTUALENV
