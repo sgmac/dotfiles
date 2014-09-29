@@ -82,5 +82,8 @@ export ANSIBLE_HOSTS="$HOME/.ansible_hosts"
 ### Pip cache
 export PIP_DOWNLOAD_CACHE=$HOME/.pip_download_cache
 
-[[ -s /home/deploy/.autojump/etc/profile.d/autojump.sh ]] && source /home/deploy/.autojump/etc/profile.d/autojump.sh
-
+if [ `uname -s` == "Darwin" ];then
+	[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+else
+	[[ -s /home/deploy/.autojump/etc/profile.d/autojump.sh ]] && source /home/deploy/.autojump/etc/profile.d/autojump.sh
+fi
