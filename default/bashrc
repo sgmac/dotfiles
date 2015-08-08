@@ -87,3 +87,19 @@ if [ `uname -s` == "Darwin" ];then
 else
 	[[ -s /home/deploy/.autojump/etc/profile.d/autojump.sh ]] && source /home/deploy/.autojump/etc/profile.d/autojump.sh
 fi
+export PATH=$HOME/.rbenv/bin:$PATH
+eval "$(rbenv init -)"
+
+# Boot2Docker
+export DOCKER_HOST=tcp://boot2docker:2376
+export DOCKER_CERT_PATH=/Users/sgm/.boot2docker/certs/boot2docker-vm
+export DOCKER_TLS_VERIFY=1
+
+### Packer
+export PATH="$HOME/packer:$PATH"
+
+### Tmuxinator
+source ~/.bin/tmuxinator.bash
+
+### AWS configuration
+source "$HOME/.awsconf"
