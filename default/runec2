@@ -2,6 +2,5 @@ export EC2_KEYPAIR="keypair-name"
 export EC2_URL="https://ec2.eu-west-1.amazonaws.com"
 export EC2_PRIVATE_KEY=""
 export EC2_CERT=""
-export EC2_HOME="/opt/ec2"
-export JAVA_HOME="/opt/jre1.7.0_13"
+export EC2_HOME="/usr/local/ec2"
 
