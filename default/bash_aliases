@@ -1,20 +1,7 @@
-alias vps='ssh sgmac.com'
+source "$HOME"/.private_aliases
+alias vps='ssh sgmac.com -l deploy'
+alias l='ls -FG'
 alias ls='ls -FG'
 alias la='ls -FaG'
 alias ll='ls -FlaG'
-
-if [ -x /usr/bin/dircolors ]; then
-    eval "`dircolors -b`"
-    alias dir='dir --color=auto'
-    alias vdir='vdir --color=auto'
-    alias ls='ls --color=auto'
-    alias l='ls -l'
-    alias ll='ls -la'
-    alias lr='ls -lrth'
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-    alias upd='sudo aptitude update' 
-    alias upg='sudo aptitude update && sudo aptitude full-upgrade' 
-    alias emacs='emacs -nw'
-fi
+alias up="VBoxManage startvm --type headless $@"
