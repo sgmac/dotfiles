@@ -1,0 +1,101 @@
+config
+### Global Configuration
+### 
+
+# Default to the current screen if the screen the reference does not exist.
+config defaultToCurrentScreen true
+# The base value for nudge percent calculation
+config nudgePercentOf screenSize
+# The base value for resize percent calculation
+config resizePercentOf screenSize
+#show icons on window hints
+config windowHintsShowIcons true
+#show icons for windows that are below focus
+config windowHintsIgnoreHiddenWindows false
+#spread out the window hint options
+config windowHintsSpread true
+
+
+### Alises
+###
+
+# Monitor Aliases
+alias mon-laptop      1280x800
+alias mon-dell        0
+alias mon-nec         1
+alias editor 'MacVim'
+
+# Positional Aliases
+alias full move screenOriginX;screenOriginY screenSizeX;screenSizeY
+alias lefthalf move screenOriginX;screenOriginY screenSizeX/2;screenSizeY
+alias leftthird move screenOriginX;screenOriginY screenSizeX/3;screenSizeY
+alias righthalf move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
+alias rightthird move screenOriginX+screenSizeX/3+screenSizeX/3;screenOriginY screenSizeX/3; screenSizeY
+alias middlethird move screenOriginX+screenSizeX/3;screenOriginY screenSizeX/3;screenSizeY
+alias tophalf move screenOriginX;screenOriginY screenSizeX;screenSizeY/2
+alias bottomhalf move screenOriginX;screenOriginY+screenSizeY/2 screenSizeX;screenSizeY/2
+alias topleft corner top-left resize:screenSizeX/2;screenSizeY/2
+alias topright corner top-right resize:screenSizeX/2;screenSizeY/2
+alias bottomleft corner bottom-left resize:screenSizeX/2;screenSizeY/2
+alias bottomright corner bottom-right resize:screenSizeX/2;screenSizeY/2
+
+#aliases for keymaps
+alias hyper ctrl;cmd;shift;alt
+
+#Layouts
+layout 1monitor 'iTunes' ${lefthalf} ${mon-laptop}
+layout 1monitor 'Omnifocus' ${full} ${mon-laptop}
+layout 1monitor 'iTerm' ${full} ${mon-laptop}
+layout 1monitor 'Google Chrome' ${full} ${mon-laptop}
+layout 1monitor 'Firefox' ${full} ${mon-laptop}
+layout 1monitor 'Macvim' ${full} ${mon-laptop}
+layout 1monitor 'TweetDeck' ${full} ${mon-laptop}
+layout 1monitor 'Spotify' ${full} ${mon-laptop}
+layout 1monitor 'KeePassX' ${bottomhalf} ${mon-laptop}
+layout 1monitor 'Finder' ${bottomhalf} ${mon-laptop}
+
+layout 2monitor 'iTerm' ${full} ${mon-dell}
+layout 2monitor 'Google Chrome' ${full} ${mon-nec}
+layout 2monitor 'Firefox' ${righthalf} ${mon-dell}
+layout 2monitor 'Macvim' ${lefthalf} ${mon-dell}
+layout 2monitor 'TweetDeck' ${full} ${mon-nec}
+layout 2monitor 'Spotify' ${full} ${mon-nec}
+layout 2monitor 'KeePassX' ${bottomhalf} ${mon-nec}
+layout 2monitor 'Finder' ${bottomhalf} ${mon-nec}
+layout 2monitor 'LimeChat' ${full} ${mon-nec}
+layout 2monitor 'Dash' ${righthalf} ${mon-nec}
+layout 2monitor 'VLC' ${full} ${mon-nec}
+
+
+# Default Layouts
+default 2monitor  resolutions:${mon-dell};${mon-nec};
+default 1monitor  resolutions:${mon-laptop}
+
+#Bind positioning keys
+bind h:cmd;ctrl ${lefthalf}
+bind l:cmd;ctrl ${righthalf}
+bind m:cmd;ctrl ${full}
+bind j:cmd;ctrl ${tophalf}
+bind k:cmd;ctrl ${bottomhalf}
+bind f:${hyper} ${full}
+
+bind p:cmd;ctrl throw 1
+bind o:cmd;ctrl throw 0
+
+
+#bind window switching ke		
+bind e:cmd hint  QWERTYUIOP
+bind b:cmd;alt focus 'Google Chrome'
+bind t:cmd;alt focus 'TweetDeck'
+bind c:cmd;alt focus 'iTerm'
+bind o:cmd;alt focus 'OmniFocus'
+bind x:cmd;alt focus 'LimeChat'
+bind f:cmd;alt focus 'Finder'
+bind m:cmd;alt focus 'Mail'
+bind s:cmd;alt focus 'Spotify'
+bind a:cmd;alt layout 1monitor
+bind y:cmd;alt layout 2monitor
+
+
+#maximize
+bind m:cmd;shift move screenOriginX;screenOriginY screenSizeX;screenSizeY
