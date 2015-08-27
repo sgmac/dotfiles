@@ -96,7 +96,8 @@ export DOCKER_CERT_PATH=/Users/sgm/.boot2docker/certs/boot2docker-vm
 export DOCKER_TLS_VERIFY=1
 
 ### Packer
-export PATH="$HOME/packer:$PATH"
+export PATH="$HOME/.packer:$PATH"
+export PATH="$HOME/.terraform:$PATH"
 
 ### Tmuxinator
 source ~/.bin/tmuxinator.bash
