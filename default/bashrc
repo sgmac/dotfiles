@@ -100,12 +100,15 @@ export PATH="$HOME/.packer:$PATH"
 export PATH="$HOME/.terraform:$PATH"
 
 ### Tmuxinator
-source ~/.bin/tmuxinator.bash
+[[ -e ~/.bin/tmuxinator.bash ]] && source ~/.bin/tmuxinator.bash
 
 ### AWS configuration
-source "$HOME/.awsconf"
+[[ -e "$HOME/.awsconf" ]] && source "$HOME/.awsconf"
 
 ### Custom ENVs
 export GOHUB="$GOPATH/src/github.com/sgmac"
 export GOBIT="$GOPATH/src/bitbucket.org/sgmac"
 export GIT="$HOME/git"
+
+### Load terraform vars
+[[ -e "$HOME/.terraform.vars" ]] && source $HOME/.terraform.vars
