@@ -23,7 +23,7 @@
 # Shell env
 ###
 export CUSTOM_SCRIPTS="${HOME}/.scripts"
-export HISTIGNORE="ls:cat:history*:~:cd ~:exec*:cd*"
+export HISTIGNORE="ls:ls *:cat:history*:~:cd ~:exec *:cd *: cd -:* --help:* -h"
 export HISTCONTROL=ignoreboth
 export HISTSIZE=5000
 export HISTFILESIZE=5000
