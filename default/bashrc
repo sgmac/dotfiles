@@ -90,10 +90,8 @@ fi
 export PATH=$HOME/.rbenv/bin:$PATH
 eval "$(rbenv init -)"
 
-# Boot2Docker
-export DOCKER_HOST=tcp://boot2docker:2376
-export DOCKER_CERT_PATH=/Users/sgm/.boot2docker/certs/boot2docker-vm
-export DOCKER_TLS_VERIFY=1
+# Docker machine
+eval "$(docker-machine env dev)"
 
 ### Packer
 export PATH="$HOME/.packer:$PATH"
