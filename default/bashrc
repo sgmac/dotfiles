@@ -30,7 +30,7 @@ export HISTFILESIZE=5000
 export EDITOR=vi
 export TERM=screen-256color
 export GOPATH="$HOME/projects/gocode"
-export PATH="$GOPATH/bin:/usr/local/ec2/bin:$HOME/.rbenv/bin:$CUSTOM_SCRIPTS:$PATH:/usr/local/go/bin:/opt/node/bin:/usr/local/google-cloud-sdk/bin"
+export PATH="$GOPATH/bin:/usr/local/ec2/bin:$CUSTOM_SCRIPTS:$PATH:/usr/local/go/bin:/opt/node/bin:/usr/local/google-cloud-sdk/bin"
 if [ -f "$HOME/.bash_prompt" ];then
 	. "$HOME/.bash_prompt"
 else
@@ -87,11 +87,6 @@ if [ `uname -s` == "Darwin" ];then
 else
 	[[ -s /home/deploy/.autojump/etc/profile.d/autojump.sh ]] && source /home/deploy/.autojump/etc/profile.d/autojump.sh
 fi
-export PATH=$HOME/.rbenv/bin:$PATH
-eval "$(rbenv init -)"
-
-# Docker machine
-eval "$(docker-machine env dev)"
 
 ### Packer
 export PATH="$HOME/.packer:$PATH"
