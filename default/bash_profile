@@ -1,9 +1,2 @@
 # Adding  profile and bashrc
-#
-[[ -e $HOME/.profile ]] && source $HOME/.profile
-
 [[ -e $HOME/.bashrc ]] && source $HOME/.bashrc
-
-[[ -e `which rbenv` ]]  && eval "$(rbenv init -)"
-
-export PATH=/usr/local/bin:$PATH
