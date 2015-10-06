@@ -30,7 +30,10 @@ export HISTFILESIZE=5000
 export EDITOR=vi
 export TERM=screen-256color
 export GOPATH="$HOME/projects/gocode"
-export PATH="$GOPATH/bin:/usr/local/ec2/bin:$CUSTOM_SCRIPTS:$PATH:/usr/local/go/bin:/opt/node/bin:/usr/local/google-cloud-sdk/bin"
+export PATH="$GOPATH/bin:/usr/local/ec2/bin:$CUSTOM_SCRIPTS:$PATH:/usr/local/go/bin:/opt/node/bin:/usr/local/google-cloud-sdk/bin:/Users/sgm/Library/Android/sdk/platform-tools"
+
+# Source custom colors before use
+[ -f ~/.bash_colors  ]      &&   { .  ~/.bash_colors      ;}
 if [ -f "$HOME/.bash_prompt" ];then
 	. "$HOME/.bash_prompt"
 else
@@ -52,7 +55,6 @@ shopt -s sourcepath
 # Loads
 ##
 [ -f /etc/bash_completion ] &&   { . /etc/bash_completion ;}
-[ -f ~/.bash_colors  ]      &&   { .  ~/.bash_colors      ;}
 [ -f ~/.bash_funcs   ]      &&   { .  ~/.bash_funcs       ;}
 [ -f ~/.bash_aliases ] 	    &&   { .  ~/.bash_aliases     ;}
 [ -f ~/.runec2	     ]	    &&   { . ~/.runec2 		  ;}
