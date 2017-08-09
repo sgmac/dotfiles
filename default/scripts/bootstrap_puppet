@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LSB="/etc/lsb-release" 
+LSB="/etc/lsb-release"
 RELEASE=$(test -e $LSB && sed -ne 's/DISTRIB_CODENAME=\(.*\)/\1/gp' $LSB)
 TMP='/tmp/puppet'
 
@@ -10,10 +10,10 @@ TMP='/tmp/puppet'
 download() {
 	if [ -e  "$TMP-$RELEASE" ];then
 		cd "$TMP-$RELEASE" || exit
-		wget http://apt.puppetlabs.com/puppetlabs-release-"$RELEASE.deb"
-		sudo dpkg -i puppetlabs-release-precise.deb
-		sudo aptitude update
-		sudo aptitude install puppet -y
+		wget http://apt.puppetlabs.com/puppet-release-"$RELEASE.deb"
+		sudo dpkg -i puppet-release-"$RELEASE".deb
+		sudo apt-get update
+		sudo apt-get install puppet -y
 	fi
 }
 

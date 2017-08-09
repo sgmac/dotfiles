@@ -2,7 +2,7 @@
 
 
 if [ $# -lt 1 ];then
-	echo "(basename $0): activate or deactivate"
+	echo "$(basename "$0"): activate or deactivate"
 	exit 1
 fi
 
