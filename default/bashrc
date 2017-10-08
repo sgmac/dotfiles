@@ -65,7 +65,7 @@ shopt -s sourcepath
 [ -z "$PS1" ] && return
 
 
-[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
+# [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
 ### Virtualenv wrapper
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
@@ -75,8 +75,6 @@ export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
 export WORKON_HOME="$HOME/.virtualenvs"
 
 
-### Ansible hosts
-export ANSIBLE_HOSTS="$HOME/.ansible_hosts"
 
 ### Pip cache
 export PIP_DOWNLOAD_CACHE=$HOME/.pip_download_cache
@@ -103,3 +101,5 @@ export GOBIT="$GOPATH/src/bitbucket.org/sgmac"
 
 ### Load terraform vars
 [[ -e "$HOME/.terraform.vars" ]] && source $HOME/.terraform.vars
+
+export EDITOR=vim
