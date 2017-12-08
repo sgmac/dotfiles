@@ -25,3 +25,11 @@ efn() { vi $HOME/.bash_funcs; }
 m2pdf() { man -t "$1" | ps2pdf - > ${1}.pdf ; }
 clipit() { [ "$#" -ge 1 ] &&  cat "$1" | xclip -selection CLIPBOARD ; }
 sa() { ssh-keygen -R $1 ; }
+
+function completeme(){
+   local current=$(pwd)
+   if [ $current != "$HOME/.vim/bundle/YouCompleteMe" ]; then
+	echo -ne "Compiling YouCompleteme\n"
+	cd "$HOME/.vim/bundle/YouCompleteMe" &&  ./install.py --clang-completer --go-completer 
+   fi
+}
