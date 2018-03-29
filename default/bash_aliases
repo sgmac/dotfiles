@@ -1,6 +1,5 @@
-alias vps='ssh sgmac.com -l deploy'
 alias l='ls -FG'
 alias ls='ls -FG'
 alias la='ls -FaG'
 alias ll='ls -FlaG'
-alias up="VBoxManage startvm --type headless $@"
+source ~/git/dotfiles/default/aliases
