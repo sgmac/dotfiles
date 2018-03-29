@@ -9,5 +9,3 @@ if [ -f '/Users/sgm/src/google-cloud-sdk/completion.bash.inc' ]; then source '/U
 
 # Pyenv
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
-
-export PATH="$HOME/.cargo/bin:$PATH"
