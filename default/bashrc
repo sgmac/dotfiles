@@ -22,7 +22,6 @@
 ###
 # Shell env
 ###
-export CUSTOM_SCRIPTS="${HOME}/.scripts"
 export HISTIGNORE="ls:ls *:cat:history*:~:cd ~:exec *:cd *: cd -:* --help:* -h"
 export HISTCONTROL=ignoreboth
 export HISTSIZE=5000
@@ -30,7 +29,7 @@ export HISTFILESIZE=5000
 export EDITOR=vi
 export TERM=screen-256color
 export GOPATH="$HOME/projects/gocode"
-export PATH="$GOPATH/bin:/usr/local/ec2/bin:$CUSTOM_SCRIPTS:$PATH:/usr/local/go/bin:/opt/node/bin:/usr/local/google-cloud-sdk/bin:/Users/sgm/Library/Android/sdk/platform-tools:~/.bin"
+export PATH="$GOPATH/bin:/usr/local/go/bin:/usr/local/google-cloud-sdk/bin:~/.bin"
 
 # Source custom colors before use
 [ -f ~/.bash_colors  ]      &&   { .  ~/.bash_colors      ;}
@@ -64,21 +63,6 @@ shopt -s sourcepath
 ###
 [ -z "$PS1" ] && return
 
-
-# [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
-
-### Virtualenv wrapper
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
-# VIRTUALENV="/usr/local/bin/virtualenvwrapper.sh"
-
-[[ -e $VIRTUALENV ]] && source  $VIRTUALENV
-export WORKON_HOME="$HOME/.virtualenvs"
-
-
-
-### Pip cache
-export PIP_DOWNLOAD_CACHE=$HOME/.pip_download_cache
-
 if [ `uname -s` == "Darwin" ];then
 	[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 else
@@ -94,8 +78,6 @@ export PATH="/usr/local/mysql/bin:$PATH"
 ### Custom ENVs
 export GOHUB="$GOPATH/src/github.com/sgmac"
 export GOBIT="$GOPATH/src/bitbucket.org/sgmac"
-# GIT env var conflicts with git.
-#export GIT="$HOME/git"
 
 ### Load terraform vars
 [[ -e "$HOME/.terraform.vars" ]] && source $HOME/.terraform.vars
