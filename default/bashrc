@@ -29,7 +29,7 @@ export HISTFILESIZE=5000
 export EDITOR=vi
 export TERM=screen-256color
 export GOPATH="$HOME/projects/gocode"
-export PATH="$GOPATH/bin:/usr/local/go/bin:/usr/local/google-cloud-sdk/bin:~/.bin"
+export PATH="/bin:$GOPATH/bin:/usr/local/go/bin:/usr/local/google-cloud-sdk/bin:~/.bin:/usr/bin:/usr/sbin"
 
 # Source custom colors before use
 [ -f ~/.bash_colors  ]      &&   { .  ~/.bash_colors      ;}
