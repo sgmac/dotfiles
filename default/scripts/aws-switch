@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+# This assumes you already have installed aws tools. 
+
+AWS_CREDENTIALS="$HOME/.aws/credentials"
+ENABLED="$( echo $(readlink -f "$AWS_CREDENTIALS" ) | sed -e 's/.*\/\([a-z]\+\)-.*/\1/')"
+
+if [ $# -lt 1 ];then
+	echo -ne "usage: $(basename "$0") [work|own]\n"
+	exit 1
+fi
+
+TARGET="$1"
+
+if [ "$ENABLED" == "$TARGET" ]; then
+	echo -ne "$TARGET is already enabled.\n"
+else
+	unlink  $AWS_CREDENTIALS
+	echo "Enabling $TARGET credentials"
+	ln -s "$HOME/.aws/$TARGET-credentials" "$AWS_CREDENTIALS"
+fi
