@@ -28,7 +28,7 @@ export HISTSIZE=5000
 export HISTFILESIZE=5000
 export EDITOR=vi
 export TERM=screen-256color
-export GOPATH="$HOME/projects/gocode"
+export GOPATH="$HOME/gocode"
 export PATH="/bin:$GOPATH/bin:/usr/local/go/bin:/usr/local/google-cloud-sdk/bin:~/.bin:/usr/bin:/usr/sbin"
 
 # Source custom colors before use
@@ -66,32 +66,19 @@ shopt -s sourcepath
 if [ `uname -s` == "Darwin" ];then
 	[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 else
-	[[ -s /home/deploy/.autojump/etc/profile.d/autojump.sh ]] && source /home/deploy/.autojump/etc/profile.d/autojump.sh
+	[[ -s  /usr/share/autojump/autojump.sh ]] && source /usr/share/autojump/autojump.sh 
 fi
 
-export PATH="/usr/local/mysql/bin:$PATH"
-
-
-### AWS configuration
-[[ -e "$HOME/.awsconf" ]] && source "$HOME/.awsconf"
 
 ### Custom ENVs
+
 export GOHUB="$GOPATH/src/github.com/sgmac"
 export GOBIT="$GOPATH/src/bitbucket.org/sgmac"
-
-### Load terraform vars
-[[ -e "$HOME/.terraform.vars" ]] && source $HOME/.terraform.vars
-
 export EDITOR=vim
 
-if [ "$(uname -s)" == 'Linux' ]; then
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/sgm/src/google-cloud-sdk/path.bash.inc' ]; then source '/home/sgm/src/google-cloud-sdk/path.bash.inc'; fi
+# Rbenv, Pyenv and Pipsi
 
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/sgm/src/google-cloud-sdk/completion.bash.inc' ]; then source '/home/sgm/src/google-cloud-sdk/completion.bash.inc'; fi
-
-# Completion for vault in linux
-complete -C /home/sgm/.bin/vault vault
-fi
-
+export PATH="/usr/local/bin:$HOME/.rbenv/bin:~/.pyenv/bin:/home/sgm/.local/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+eval "$(rbenv init -)"
