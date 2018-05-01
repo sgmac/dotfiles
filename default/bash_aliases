@@ -1,5 +1,5 @@
-alias l='ls -FG'
-alias ls='ls -FG'
+
+alias l='ls -FG '
+alias ls='ls -FG --color'
 alias la='ls -FaG'
 alias ll='ls -FlaG'
-source ~/git/dotfiles/default/aliases
