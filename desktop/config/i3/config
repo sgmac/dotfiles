@@ -24,7 +24,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec $menu
 
 # lock screen
-bindsym $mod+l exec $lock #-c 111111
+bindsym $mod+Shift+l exec $lock #-c 111111
 
 # change focus
 bindsym $mod+j focus left
@@ -41,7 +41,7 @@ bindsym $mod+Right focus right
 # move focused window
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
+# bindsym $mod+Shift+l move up
 bindsym $mod+Shift+semicolon move right
 
 # alternatively, you can use the cursor keys:
