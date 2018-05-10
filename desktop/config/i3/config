@@ -162,9 +162,9 @@ bar {
 	
 
 
-	# status_command i3status -c ~/.i3/status.conf
+	status_command i3status --config  ~/.config/i3/status.conf
 
-        status_command i3status
+        # status_command i3status
 	# mode hide
 	workspace_buttons yes
         tray_output primary
