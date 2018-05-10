@@ -26,6 +26,12 @@ bindsym $mod+d exec $menu
 # lock screen
 bindsym $mod+Shift+l exec $lock #-c 111111
 
+# Sound
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
+bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
+bindsym XF86AudioMute exec amixer -D pulse set Master 1+ toggle
+
+
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -138,22 +144,14 @@ bindsym $mod+r mode "resize"
 bar {
 	position top
         tray_output none
-	# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+	font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 	
 
 
-         status_command i3status
-	# colors {
-	# 	background #000000
-	# 	statusline #ffffff
+	# status_command i3status -c ~/.i3/status.conf
 
-	# 	focused_workspace  #ffffff #285577
-	# 	active_workspace   #ffffff #333333
-	# 	inactive_workspace #888888 #222222
-	# 	urgent_workspace   #ffffff #900000
-	#     }
-
+        status_command i3status
 	# mode hide
-	# workspace_buttons yes
-        # tray_output primary
+	workspace_buttons yes
+        tray_output primary
 }
