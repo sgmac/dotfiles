@@ -1,15 +1,20 @@
+#
+# Great ideas taken from:
+# 	https://github.com/jessfraz/dotfiles
+# 
+#############################################
 
+
+#
 # Vars 
-
+##########
 set $mod Mod1
 set $menu  i3-dmenu-desktop 
 set $terminal urxvt
 set $lock i3lock
 
 # Font for window titles. 
-font pango:monospace 8
-
-for_window [class="^Spotify$"] border none
+font pango:Monospace 9
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -30,6 +35,15 @@ bindsym $mod+Shift+l exec $lock #-c 111111
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
 bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
 bindsym XF86AudioMute exec amixer -D pulse set Master 1+ toggle
+
+
+#
+# Applications
+###############
+
+for_window [class="^Spotify$"] border none
+for_window [class="Code"] floating enable
+for_window [class="Wireshark"] floating enable
 
 
 # change focus
