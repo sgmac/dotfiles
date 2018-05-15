@@ -29,7 +29,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec $menu
 
 # lock screen
-bindsym $mod+Shift+l exec $lock #-c 111111
+bindsym $mod+Shift+l exec $lock -c 111111
 
 # Sound
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
