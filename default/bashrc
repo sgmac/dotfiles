@@ -29,7 +29,7 @@ export HISTFILESIZE=5000
 export EDITOR=vi
 export TERM=screen-256color
 export GOPATH="$HOME/gocode"
-export PATH="/bin:$GOPATH/bin:/usr/local/go/bin:/usr/local/google-cloud-sdk/bin:~/.bin:/usr/bin:/usr/sbin"
+export PATH="/bin:$GOPATH/bin:/usr/local/go/bin:/usr/local/google-cloud-sdk/bin:~/.bin:/usr/bin:/usr/sbin:/sbin"
 
 # Source custom colors before use
 [ -f ~/.bash_colors  ]      &&   { .  ~/.bash_colors      ;}
@@ -56,7 +56,6 @@ shopt -s sourcepath
 [ -f /etc/bash_completion ] &&   { . /etc/bash_completion ;}
 [ -f ~/.bash_funcs   ]      &&   { .  ~/.bash_funcs       ;}
 [ -f ~/.bash_aliases ] 	    &&   { .  ~/.bash_aliases     ;}
-[ -f ~/.runec2	     ]	    &&   { . ~/.runec2 		  ;}
 
 ###
 # Run Interactive 
