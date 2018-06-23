@@ -1,0 +1,4 @@
+# Aliases work
+
+alias log='tmuxinator start log'
+alias sweek='mkdir W`date +%U+1 | bc -l`'
