@@ -31,6 +31,10 @@ bindsym $mod+d exec $menu
 # lock screen
 bindsym $mod+Shift+l exec $lock -c 111111
 
+# keyboard lang
+bindsym $mod+Shift+p exec setxkbmap es
+bindsym $mod+Shift+o exec setxkbmap us
+
 # Sound
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
 bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
@@ -39,6 +43,17 @@ bindsym XF86AudioPlay exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer
 bindsym XF86AudioNext exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next" 
 bindsym XF86AudioPrev exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
 bindsym XF86AudioStop exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop"
+
+# Brighness control
+# Add to /etc/X11/xorg.conf
+# Section "Device"
+#         Identifer "card0"
+#         Driver "intel"
+#         Option "Backlight" "intel_backlight"
+# EndSection
+#
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 
 # Displays
 bindsym $mod+Shift+u exec /home/sgm/.screenlayout/unplug_laptop.sh
@@ -114,6 +129,7 @@ bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
+bindsym $mod+g workspace G
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -126,6 +142,8 @@ bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+g move container to workspace g
+
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
