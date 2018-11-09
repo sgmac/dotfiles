@@ -29,7 +29,7 @@ export HISTFILESIZE=5000
 export EDITOR=vi
 export TERM=screen-256color
 export GOPATH="$HOME/code/go"
-export PATH="/bin:$GOPATH/bin:/usr/local/go/bin:/usr/local/google-cloud-sdk/bin:~/.bin:/usr/bin:/usr/sbin:/sbin:/home/sgm/.cargo/bin"
+export PATH="/bin:$GOPATH/bin:/usr/local/go/bin:/usr/local/google-cloud-sdk/bin:/home/sgm/.bin:/usr/bin:/usr/sbin:/sbin:/home/sgm/.cargo/bin"
 
 # Source custom colors before use
 [ -f ~/.bash_colors  ]      &&   { .  ~/.bash_colors      ;}
@@ -77,9 +77,26 @@ export EDITOR=vim
 
 # Rbenv, Pyenv and Pipsi
 
-export PATH="/usr/local/bin:$HOME/.rbenv/bin:~/.pyenv/bin:/home/sgm/.local/bin:$PATH"
+export PATH="/usr/local/bin:$HOME/.rbenv/bin:~/.pyenv/bin:/home/sgm/.local/bin:$PATH:$HOME/.kubthehardway/bin"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 eval "$(rbenv init -)"
 export PATH=$HOME/.rbenv/bin:$PATH
-eval "$(rbenv init -)"
+
+[[ -e "$HOME/.work_aliases" ]] && source "$HOME/.work_aliases"
+
+ssh_add_keys(){
+	ssh-add ~/.ssh/infra_algolia &>/dev/null
+	ssh-add ~/.ssh/google_compute_engine &>/dev/null
+	ssh-add ~/.ssh/amazon-use &>/dev/null
+	ssh-add ~/.ssh/sergalma_amazon_console.pem &>/dev/null
+}
+
+if [ "$(ps -ef | grep ssh-agent | grep -v grep)" == ""  ]; then
+     eval `ssh-agent -s` && ssh_add_keys
+fi
+
+# Source aliases
+if [ -e "$HOME/.aliases" ];then
+	source "$HOME/.aliases"
+fi

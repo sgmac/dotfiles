@@ -1,5 +1,5 @@
 
-alias l='ls -FG '
-alias ls='ls -FG --color'
-alias la='ls -FaG'
-alias ll='ls -FlaG'
+alias l='ls -F'
+alias ls='ls -F --color'
+alias la='ls -Fa'
+alias ll='ls -Fla'

@@ -1,7 +1,7 @@
-
-
 # Docker
 alias dcb='docker-compose build'
 alias dcu='docker-compose up'
 alias dcd='docker-compose down'
 alias dockclean="docker rmi -f $(docker images | ag '^<' | awk '{print $3}')"
+
+alias suspend='i3lock  -c 111111 && sudo pm-suspend'
