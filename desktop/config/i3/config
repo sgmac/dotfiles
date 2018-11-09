@@ -13,8 +13,24 @@ set $menu  i3-dmenu-desktop
 set $terminal urxvt
 set $lock i3lock
 
+# Startup apps
+exec --no-startup-id /usr/bin/dropbox start -i
+exec --no-startup-id /usr/bin/nm-applet
+
+# Startup workspace
+exec --no-startup-id  i3-msg 'workspace 1'; exec /usr/bin/urxvt
+exec --no-startup-id  i3-msg 'workspace 3'; exec /usr/bin/keepassx
+exec --no-startup-id  i3-msg 'workspace 9'; exec /usr/bin/spotify
+
+# Assign applicaitons workspaces
+assign [class="Keepassx"] 3
+assign [class="Slack"] 8
+assign [class="Telegram"] 8
+assign [class="Spotify"] 9
+
+
 # Font for window titles. 
-font pango:Monospace 9
+font pango:Monospace 12
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -56,15 +72,15 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 
 # Displays
-bindsym $mod+Shift+u exec /home/sgm/.screenlayout/unplug_laptop.sh
-bindsym $mod+Shift+x exec /home/sgm/.screenlayout/both_displays_active.sh
+bindsym $mod+Shift+u exec /home/sgm/.screenlayout/only_xps_display_DP.sh
+bindsym $mod+Shift+x exec /home/sgm/.screenlayout/dual27-vertical.sh
 
 #
 # Applications
 ###############
 
 for_window [class="^Spotify$"] border none
-for_window [class="Code"] floating enable
+for_window [class="Code"] floating disable
 for_window [class="Wireshark"] floating enable
 
 
@@ -130,6 +146,7 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 bindsym $mod+g workspace G
+bindsym $mod+m workspace M
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -150,28 +167,20 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-# resize window (you can also use the mouse for that)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
         bindsym j resize shrink width 10 px or 10 ppt
         bindsym k resize grow height 10 px or 10 ppt
         bindsym l resize shrink height 10 px or 10 ppt
         bindsym semicolon resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
         bindsym Down resize grow height 10 px or 10 ppt
         bindsym Up resize shrink height 10 px or 10 ppt
         bindsym Right resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
