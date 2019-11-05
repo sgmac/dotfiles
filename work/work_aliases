@@ -1,5 +1,0 @@
-# Aliases work
-
-alias log='tmuxinator start log'
-alias sweek='mkdir W`date +%U+1 | bc -l`'
-alias sadran='ssh -i ~/.ssh/infra_algolia  ubuntu@52.47.127.209'
