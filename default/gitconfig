@@ -13,9 +13,6 @@
 	amend = commit --amend -C HEAD
 	undo = reset --soft HEAD^
 	br = branch
-
-
-
 [apply]
 	whitespace = strip
 
