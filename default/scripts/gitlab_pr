@@ -1,0 +1,33 @@
+#!/usrbin/env bash
+
+set -o pipefail
+
+TOKEN_GITLAB="CHANGEME"
+
+if [ $# -lt 1 ]; then
+  echo "usage: project-name [pr-state]"
+  echo "[options]:"
+  echo "-pr-state: merged | closed | open"
+  exit 1
+fi
+
+project_name="$1";shift
+
+case $project_name in
+ ent)
+   echo "sessionm-ent"
+    curl -s  -H "Private-Token: $TOKEN_GITLAB" https://gitlab.sessionm.com/api/v4/projects/142/merge_requests |jq '.[] | select((.author.username == "sgalvan") and .state != "merged" ) | [.title, .source_branch, .state]'
+   ;;
+ q)
+   echo "sessionm-stg"
+    curl -s  -H "Private-Token: $TOKEN_GITLAB" https://gitlab.sessionm.com/api/v4/projects/140/merge_requests |jq '.[] | select((.author.username == "sgalvan") and .state != "merged") | [.title, .source_branch, .state]'
+   ;;
+ all)
+   echo "TER-project"
+   curl -s -H "Private-Token: $TOKEN_GITLAB" https://gitlab.sessionm.com/api/v4/merge_requests\?scope\=created_by_me  |jq '.[] | select(.state=="opened") | [.title, .source_branch, .state] '
+   ;;
+   *)
+   echo "Default"
+   ;;
+esac
+
