@@ -8,9 +8,9 @@
 #
 # Vars 
 ##########
-set $mod Mod1
+set $mod Mod4
 set $menu  i3-dmenu-desktop 
-set $terminal urxvt
+set $terminal urxvt -e zsh
 set $lock i3lock
 
 # Startup apps
@@ -18,7 +18,7 @@ exec --no-startup-id /usr/bin/dropbox start -i
 exec --no-startup-id /usr/bin/nm-applet
 
 # Startup workspace
-exec --no-startup-id  i3-msg 'workspace 1'; exec /usr/bin/urxvt
+#exec --no-startup-id  i3-msg 'workspace 1'; exec /usr/bin/urxvt
 exec --no-startup-id  i3-msg 'workspace 3'; exec /usr/bin/keepassx
 exec --no-startup-id  i3-msg 'workspace 9'; exec /usr/bin/spotify
 
@@ -28,6 +28,21 @@ assign [class="Slack"] 8
 assign [class="Telegram"] 8
 assign [class="Spotify"] 9
 
+
+# Dropdown (Luke Smith)
+#
+
+exec --no-startup-id urxvt -n math  -e zsh
+for_window [instance="math"] floating enable
+for_window [instance="math"] resize set 400 300
+for_window [instance="math"] move scratchpad
+for_window [instance="math"] border pixel 5
+
+#bindsym $mod+Shift+minus move scratchpad
+#bindsym $mod+Shift+a [instance="math"] scratchpad show; [instance="math"] move position center
+bindsym $mod+Shift+a scratchpad show
+bindsym $mod+Shift+minus move scratchpad
+#bindsym $mod+Shift+u resize shrink height 10 px or 10 ppt
 
 # Font for window titles. 
 font pango:Monospace 12
@@ -72,8 +87,8 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 
 # Displays
-bindsym $mod+Shift+u exec /home/sgm/.screenlayout/only_xps_display_DP.sh
-bindsym $mod+Shift+x exec /home/sgm/.screenlayout/dual27-vertical.sh
+#bindsym $mod+Shift+u exec /home/sgm/.screenlayout/only_xps_display_DP.sh
+#bindsym $mod+Shift+x exec /home/sgm/.screenlayout/dual27-vertical.sh
 
 #
 # Applications
