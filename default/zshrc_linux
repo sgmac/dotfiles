@@ -1,0 +1,56 @@
+ZSH="/home/sgm/.oh-my-zsh"
+ZSH_THEME="robbyrussell"
+
+#plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+export LANG=en_US.UTF-8
+
+alias vim='nvim'
+alias mutt='neomutt -F /home/sgm/.config/neomutt/muttrc'
+alias k='kubectl'
+
+# Autojump
+[ -f /usr/share/autojump/autojump.zsh ] && . /usr/share/autojump/autojump.zsh
+
+export PATH="$HOME/.local/bin/hashicorp:$HOME/.local/bin:$PATH"
+
+
+# Pyenv|Rbenv
+export PATH="/home/sgm/.pyenv/bin:$HOME/.rbenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+
+# Golang
+export PATH="/usr/local/go/bin:$HOME/go/bin:$PATH"
+
+# Load SSH-keys
+[ -z "$(pgrep ssh-agent)" ] && echo "starting ssh-agent" && eval "$(ssh-agent)"
+[ -f "$HOME/.ssh/id_infra_home" ] && [ ! -z "$SSH_KEYS_LOADED" ]  &&  ssh-add "$HOME/.ssh/id_infra_home"
+[ -f "$HOME/.ssh/id_digitalocean_sessionm" ] && [ ! -z "$SSH_KEYS_LOADED" ]  &&  ssh-add "$HOME/.ssh/id_digitalocean_sessionm"
+export  SSH_KEYS_LOADED=1
+
+
+# Functions
+#
+
+# github [item] searches on github
+function github(){
+	open "https://github.com/sgmac/$1"
+}
+
+# nlines [file_extension] computes total lines in the current directory
+function nlines() {
+   find . -type d -path '*.terraform' -prune -o  -name "*${1}"  -exec wc -l {} \; | awk 'BEGIN{SUM=0}{SUM+=$1}END{print SUM}'
+}
+
+# zconf edits .zshrc
+function zconf() {
+	vim ~/.zshrc
+}
+
+# help shows information about functions  
+function help(){
+   grep function -B1   "$HOME/.zshrc" | grep "^#"
+}
