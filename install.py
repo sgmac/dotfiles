@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import os
 import sys
+import argparse 
 
 DEFAULT = os.path.abspath('default')
 DESKTOP = 'desktop'
@@ -12,7 +13,7 @@ def link_default():
     for file in os.listdir(DEFAULT):
         source = os.path.join(DEFAULT, file)
         dest = os.path.join(HOME, '.%s' % file)
-        print 'Symlink to .%s' % file
+        print(f'Symlink to {file}')
         try:
             if os.path.exists(dest):
                 os.unlink(dest)
@@ -33,7 +34,7 @@ def link_desktop():
                 dest = os.path.join(dest_path, file)
             else:
                 dest = os.path.join(HOME, '.%s' % file)
-            print 'Linking %s' % file
+            print(f'Linking {file}')
 
             try:
                 os.symlink(source, dest)
@@ -42,17 +43,20 @@ def link_desktop():
 
 
 if  __name__ == '__main__':
-    PATH = os.path.join(os.environ.get('HOME'), '.vimswp')
-    platform = sys.platform
-    try:
-        os.mkdir(PATH)
-    except:
-        pass
-    if len(sys.argv) > 1 and sys.argv[1] == 'desktop':
-        if not 'darwin' in platform:
-            link_desktop()
+    parser = argparse.ArgumentParser(description='Install dotfiles in linux or mac')
+    parser.add_argument('-t', '--target',  help='target platform', required=True)
+    args = parser.parse_args()
+    target_os = args.target
+
+    if 'linux' in target_os:
+        if 'linux' in sys.platform:
+         link_default()
+         link_desktop() 
+         sys.exit(0)
         else:
-            print("Desktop configuration is only available on Linux systems.")
-            sys.exit(1)
+            print('Not a linux system')
+    elif 'osx' in target_os:
+       print('implement')
+       pass
     else:
-        link_default()
+        print('target system not supported.')
