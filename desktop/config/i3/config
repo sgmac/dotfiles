@@ -11,16 +11,18 @@
 set $mod Mod4
 set $menu  i3-dmenu-desktop 
 set $terminal urxvt -e zsh
+#set $terminal urxvt -e bash
 set $lock i3lock
 
 # Startup apps
 exec --no-startup-id /usr/bin/dropbox start -i
 exec --no-startup-id /usr/bin/nm-applet
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Startup workspace
 #exec --no-startup-id  i3-msg 'workspace 1'; exec /usr/bin/urxvt
-exec --no-startup-id  i3-msg 'workspace 3'; exec /usr/bin/keepassx
-exec --no-startup-id  i3-msg 'workspace 9'; exec /usr/bin/spotify
+#exec --no-startup-id  i3-msg 'workspace 3'; exec /usr/bin/keepassx
+#exec --no-startup-id  i3-msg 'workspace 9'; exec /usr/bin/spotify
 
 # Assign applicaitons workspaces
 assign [class="Keepassx"] 3
@@ -32,7 +34,7 @@ assign [class="Spotify"] 9
 # Dropdown (Luke Smith)
 #
 
-exec --no-startup-id urxvt -n math  -e zsh
+exec --no-startup-id urxvt -n math  -e bash
 for_window [instance="math"] floating enable
 for_window [instance="math"] resize set 400 300
 for_window [instance="math"] move scratchpad
@@ -40,12 +42,13 @@ for_window [instance="math"] border pixel 5
 
 #bindsym $mod+Shift+minus move scratchpad
 #bindsym $mod+Shift+a [instance="math"] scratchpad show; [instance="math"] move position center
-bindsym $mod+Shift+a scratchpad show
+bindsym $mod+Shift+a  scratchpad show; move position center
+#bindsym $mod+Shift+a scratchpad show
 bindsym $mod+Shift+minus move scratchpad
 #bindsym $mod+Shift+u resize shrink height 10 px or 10 ppt
 
 # Font for window titles. 
-font pango:Monospace 12
+font pango:Monospace 4
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -203,18 +206,27 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 
-# Bar configuration
-bar {
-	position top
-        tray_output none
-	font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-	
 
+## Bar configuration
+#bar {
+#	position top
+#        tray_output none
+#	font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+#	status_command i3status --config  ~/.config/i3/status.conf
 
-	status_command i3status --config  ~/.config/i3/status.conf
+#        # status_command i3status
+#	# mode hide
+#	workspace_buttons yes
+#        tray_output primary
 
-        # status_command i3status
-	# mode hide
-	workspace_buttons yes
-        tray_output primary
-}
+#	colors {
+#		#separator #444444
+#		background #222222
+#		#statusline #B1B1B1
+#		focused_workspace #A00 #FFFF00 #000
+
+#		#active_workspace  #000000  #red #000000
+#		#inactive_workspace #CECECE #333333 #f1f1f1
+#		#urgent_workspace #eb709b #eb709b #ffffff
+#	   }
+#}
