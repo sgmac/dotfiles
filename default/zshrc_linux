@@ -1,5 +1,5 @@
 ZSH="/home/sgm/.oh-my-zsh"
-ZSH_THEME="robbyrussell"
+ZSH_THEME="peepcode"
 
 #plugins=(git)
 
@@ -8,7 +8,9 @@ export LANG=en_US.UTF-8
 
 alias vim='nvim'
 alias mutt='neomutt -F /home/sgm/.config/neomutt/muttrc'
+alias batl="upower -i /org/freedesktop/UPower/devices/battery_BAT0"
 alias k='kubectl'
+alias vim='nvim'
 
 # Autojump
 [ -f /usr/share/autojump/autojump.zsh ] && . /usr/share/autojump/autojump.zsh
@@ -30,6 +32,11 @@ export PATH="/usr/local/go/bin:$HOME/go/bin:$PATH"
 [ -f "$HOME/.ssh/id_infra_home" ] && [ ! -z "$SSH_KEYS_LOADED" ]  &&  ssh-add "$HOME/.ssh/id_infra_home"
 [ -f "$HOME/.ssh/id_digitalocean_sessionm" ] && [ ! -z "$SSH_KEYS_LOADED" ]  &&  ssh-add "$HOME/.ssh/id_digitalocean_sessionm"
 export  SSH_KEYS_LOADED=1
+
+PATH="$HOME/.rbenv/bin:$PATH"
+
+eval "$(rbenv init -)"
+
 
 
 # Functions
@@ -54,3 +61,4 @@ function zconf() {
 function help(){
    grep function -B1   "$HOME/.zshrc" | grep "^#"
 }
+

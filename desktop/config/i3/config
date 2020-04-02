@@ -48,7 +48,7 @@ bindsym $mod+Shift+minus move scratchpad
 #bindsym $mod+Shift+u resize shrink height 10 px or 10 ppt
 
 # Font for window titles. 
-font pango:Monospace 4
+font pango:Monospace 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
