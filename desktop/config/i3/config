@@ -9,43 +9,32 @@
 # Vars 
 ##########
 set $mod Mod4
-set $menu  i3-dmenu-desktop 
+#set $menu  dmenu_run -fn 'HackNF-16'
+set $menu   rofi -show drun -theme solarized -font "hackNF 12"
 set $terminal urxvt -e zsh
-#set $terminal urxvt -e bash
 set $lock i3lock
+
+for_window [class="^.*"] border pixel 1
+gaps inner 5
+gaps outer 5
 
 # Startup apps
 exec --no-startup-id /usr/bin/dropbox start -i
+exec --no-startup-id /usr/bin/xrandr --output DisplayPort-1 --off --output DisplayPort-0 --off --output DisplayPort-2 --mode 2560x1440 --pos 3840x0 --rotate right --output DVI-D-0 --off --output HDMI-A-0 --mode 3840x2160 --pos 0x0 --rotate normal
 exec --no-startup-id /usr/bin/nm-applet
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-
-# Startup workspace
-#exec --no-startup-id  i3-msg 'workspace 1'; exec /usr/bin/urxvt
-#exec --no-startup-id  i3-msg 'workspace 3'; exec /usr/bin/keepassx
-#exec --no-startup-id  i3-msg 'workspace 9'; exec /usr/bin/spotify
+exec --no-startup-id /usr/bin/feh  --bg-fill ~/.wallpapers/baffin_island.jpg 
+exec --no-startup-id blueman-applet
 
 # Assign applicaitons workspaces
 assign [class="Keepassx"] 3
-assign [class="Slack"] 8
-assign [class="Telegram"] 8
+assign [class="Slack"] 10
+assign [class="Telegram"] 10
 assign [class="Spotify"] 9
 
 
-# Dropdown (Luke Smith)
-#
 
-exec --no-startup-id urxvt -n math  -e bash
-for_window [instance="math"] floating enable
-for_window [instance="math"] resize set 400 300
-for_window [instance="math"] move scratchpad
-for_window [instance="math"] border pixel 5
-
-#bindsym $mod+Shift+minus move scratchpad
-#bindsym $mod+Shift+a [instance="math"] scratchpad show; [instance="math"] move position center
-bindsym $mod+Shift+a  scratchpad show; move position center
-#bindsym $mod+Shift+a scratchpad show
 bindsym $mod+Shift+minus move scratchpad
-#bindsym $mod+Shift+u resize shrink height 10 px or 10 ppt
+bindsym $mod+Shift+a  scratchpad show; move position center
 
 # Font for window titles. 
 font pango:Monospace 10
@@ -59,8 +48,8 @@ bindsym $mod+Return exec $terminal
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# bindsym $mod+d exec
-bindsym $mod+d exec $menu
+# bindsym $mod+d exej
+bindsym $mod+d exec $menu  
 
 # lock screen
 bindsym $mod+Shift+Escape exec $lock -c 111111
@@ -78,13 +67,6 @@ bindsym XF86AudioNext exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer
 bindsym XF86AudioPrev exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
 bindsym XF86AudioStop exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop"
 
-# Brighness control
-# Add to /etc/X11/xorg.conf
-# Section "Device"
-#         Identifer "card0"
-#         Driver "intel"
-#         Option "Backlight" "intel_backlight"
-# EndSection
 #
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10
@@ -155,13 +137,8 @@ bindsym $mod+a focus parent
 # switch to workspace
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
+bindsym $mod+8 workspace 8
 bindsym $mod+0 workspace 10
 bindsym $mod+g workspace G
 bindsym $mod+m workspace M
@@ -169,11 +146,6 @@ bindsym $mod+m workspace M
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
@@ -182,6 +154,7 @@ bindsym $mod+Shift+g move container to workspace g
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
+
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
@@ -208,25 +181,27 @@ bindsym $mod+r mode "resize"
 
 
 ## Bar configuration
-#bar {
-#	position top
-#        tray_output none
-#	font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-#	status_command i3status --config  ~/.config/i3/status.conf
+bar {
+	#height 25
+	#status_command i3status --config  ~/.config/i3/status.conf
+	
+	position top
+        tray_output none
+	#font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+	font pango:DejaVu Sans Mono 14
+	status_command i3blocks -c ~/.config/i3/blocks.conf
 
-#        # status_command i3status
-#	# mode hide
-#	workspace_buttons yes
-#        tray_output primary
+	workspace_buttons yes
+        tray_output primary
 
-#	colors {
-#		#separator #444444
-#		background #222222
-#		#statusline #B1B1B1
-#		focused_workspace #A00 #FFFF00 #000
+	colors {
+		#separator #444444
+		background #222222
+		#statusline #B1B1B1
+		focused_workspace #A00 #FFFF00 #000
 
-#		#active_workspace  #000000  #red #000000
-#		#inactive_workspace #CECECE #333333 #f1f1f1
-#		#urgent_workspace #eb709b #eb709b #ffffff
-#	   }
-#}
+		#active_workspace  #000000  #red #000000
+		#inactive_workspace #CECECE #333333 #f1f1f1
+		#urgent_workspace #eb709b #eb709b #ffffff
+	   }
+}
