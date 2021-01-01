@@ -19,9 +19,17 @@ gaps outer 5
 
 # Startup apps
 exec --no-startup-id /usr/bin/dropbox start -i
-exec --no-startup-id /usr/bin/xrandr --output DisplayPort-1 --off --output DisplayPort-0 --off --output DisplayPort-2 --mode 2560x1440 --pos 3840x0 --rotate right --output DVI-D-0 --off --output HDMI-A-0 --mode 3840x2160 --pos 0x0 --rotate normal
+exec --no-startup-id /usr/bin/xrandr --dpi 96 --output DisplayPort-0 --off --output DisplayPort-1 --primary --mode 3840x2160 --pos 0x0 --rotate normal --output DisplayPort-2 --mode 2560x1440 --pos 3840x0 --rotate right --output HDMI-A-0 --off --output DVI-D-0 --off
+
+# Workspaces
+
+workspace "1" output DisplayPort-1
+workspace "2" output DisplayPort-1
+workspace "9" output DisplayPort-2
+workspace "0" output DisplayPort-2
+
 exec --no-startup-id /usr/bin/nm-applet
-exec --no-startup-id /usr/bin/feh  --bg-fill ~/.wallpapers/baffin_island.jpg 
+exec --no-startup-id /usr/bin/feh  --bg-fill ~/.config/wallpapers/baffin_island.jpg
 exec --no-startup-id blueman-applet
 
 # Assign applicaitons workspaces
@@ -30,6 +38,13 @@ assign [class="Slack"] 10
 assign [class="Telegram"] 10
 assign [class="Spotify"] 9
 
+
+# Workspaces
+
+workspace "1" output DisplayPort-1
+workspace "2" output DisplayPort-1
+workspace "9" output DisplayPort-2
+workspace "0" output DisplayPort-2
 
 
 bindsym $mod+Shift+minus move scratchpad
@@ -47,7 +62,12 @@ bindsym $mod+Return exec $terminal
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# bindsym $mod+d exej
+# Increase volume
+bindsym $mod+Prior exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym $mod+Next exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+
+
+# bindsym $mod+d exe
 bindsym $mod+d exec $menu  
 
 # lock screen
