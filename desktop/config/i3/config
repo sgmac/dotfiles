@@ -9,9 +9,8 @@
 # Vars 
 ##########
 set $mod Mod4
-#set $menu  dmenu_run -fn 'HackNF-16'
-set $menu   rofi -show drun -theme solarized -font "hackNF 12"
-set $terminal urxvt -e zsh
+set $menu   rofi -show drun -theme solarized -font "hackNF 12" -width  20
+set $terminal alacritty -e zsh
 set $lock i3lock
 
 for_window [class="^.*"] border pixel 1
@@ -56,24 +55,20 @@ bindsym $mod+Shift+Escape exec $lock -c 111111
 
 # keyboard lang
 bindsym $mod+Shift+p exec setxkbmap es
-bindsym $mod+Shift+o exec setxkbmap us
+bindsym $mod+Shift+u exec setxkbmap us
 
 # Sound
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
 bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
 bindsym XF86AudioMute exec amixer -D pulse set Master 1+ toggle
+
 bindsym XF86AudioPlay exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause" 
 bindsym XF86AudioNext exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next" 
 bindsym XF86AudioPrev exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
 bindsym XF86AudioStop exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop"
 
-#
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10
-
-# Displays
-#bindsym $mod+Shift+u exec /home/sgm/.screenlayout/only_xps_display_DP.sh
-#bindsym $mod+Shift+x exec /home/sgm/.screenlayout/dual27-vertical.sh
 
 #
 # Applications
@@ -138,7 +133,6 @@ bindsym $mod+a focus parent
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
 bindsym $mod+9 workspace 9
-bindsym $mod+8 workspace 8
 bindsym $mod+0 workspace 10
 bindsym $mod+g workspace G
 bindsym $mod+m workspace M
@@ -146,10 +140,10 @@ bindsym $mod+m workspace M
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 bindsym $mod+Shift+g move container to workspace g
+bindsym $mod+Shift+m move container to workspace m
 
 
 # reload the configuration file
@@ -187,21 +181,19 @@ bar {
 	
 	position top
         tray_output none
-	#font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-	font pango:DejaVu Sans Mono 14
+	font pango:DejaVu Sans Mono  14
 	status_command i3blocks -c ~/.config/i3/blocks.conf
 
 	workspace_buttons yes
         tray_output primary
 
 	colors {
-		#separator #444444
 		background #222222
-		#statusline #B1B1B1
 		focused_workspace #A00 #FFFF00 #000
-
-		#active_workspace  #000000  #red #000000
-		#inactive_workspace #CECECE #333333 #f1f1f1
-		#urgent_workspace #eb709b #eb709b #ffffff
 	   }
 }
+
+# Disabled
+
+#set $menu  dmenu_run -fn 'HackNF-16'
+#set $terminal urxvt -e zsh
