@@ -19,10 +19,10 @@ gaps outer 5
 
 # Startup apps
 exec --no-startup-id /usr/bin/dropbox start -i
-exec --no-startup-id /usr/bin/xrandr --output DisplayPort-1 --off --output DisplayPort-0 --off --output DisplayPort-2 --mode 2560x1440 --pos 3840x0 --rotate right --output DVI-D-0 --off --output HDMI-A-0 --mode 3840x2160 --pos 0x0 --rotate normal
 exec --no-startup-id /usr/bin/nm-applet
 exec --no-startup-id /usr/bin/feh  --bg-fill ~/.wallpapers/baffin_island.jpg 
 exec --no-startup-id blueman-applet
+exec --no-startup-id $HOME/.config/polybar/launch_polybar.sh
 
 # Assign applicaitons workspaces
 assign [class="Keepassx"] 3
