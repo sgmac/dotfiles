@@ -1,7 +1,7 @@
 [user]
 	name =  Sergio Galvan
 	email = sergalma@gmail.com
-	signingkey = 9FDE7A69
+	signingkey = ED87E82A
 
 [alias]
 	ci = commit -a
