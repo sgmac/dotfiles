@@ -1,7 +1,7 @@
 [user]
 	name =  Sergio Galvan
 	email = sergalma@gmail.com
-	signingkey = ED87E82A
+	; signingkey = ED87E82A
 
 [alias]
 	ci = commit -a
@@ -32,5 +32,5 @@
 	default = simple
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
-[commit]
-	gpgsign = true
+; [commit]
+; 	gpgsign = true
