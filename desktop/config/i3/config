@@ -11,6 +11,9 @@
 # REF: transparency, compiled from source 
 exec --no-startup-id picom -CGb
 
+exec --no-startup-id /usr/bin/xrandr --output eDP1 --primary --mode 2880x1800 --dpi 145
+
+
 #
 # Vars 
 ##########
@@ -27,7 +30,7 @@ gaps outer 1
 # Startup apps
 exec --no-startup-id /usr/bin/dropbox start -i
 exec --no-startup-id /usr/bin/nm-applet
-exec --no-startup-id /usr/bin/feh  --bg-fill ~/.wallpapers/baffin_island.jpg 
+exec --no-startup-id /usr/bin/feh  --bg-fill ~/config/wallpapers/fall.jpg
 exec --no-startup-id blueman-applet
 exec --no-startup-id $HOME/.config/polybar/launch_polybar.sh
 
@@ -43,7 +46,7 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+Shift+a  scratchpad show; move position center
 
 # Font for window titles. 
-font pango:Monospace 10
+font pango:Monospace 16
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod

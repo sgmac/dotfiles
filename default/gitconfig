@@ -32,5 +32,10 @@
 	default = simple
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
+[url "ssh://git@bitbucket.org/"]
+	insteadOf = https://bitbucket.com/
 ; [commit]
 ; 	gpgsign = true
+[credential "https://github.com"]
+	helper = 
+	helper = !/home/sgm/.local/bin/gh auth git-credential
